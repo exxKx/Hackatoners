@@ -63,7 +63,7 @@
         app:layout_constraintTop_toBottomOf="@id/middle_region"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toTopOf="@id/action_next" />
 
     <View
         android:layout_width="40dp"
@@ -75,5 +75,19 @@
         app:layout_constraintEnd_toEndOf="@id/low_region"
         app:layout_constraintBottom_toBottomOf="@id/low_region"
         app:layout_constraintHorizontal_bias="0.25" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Перейти к заданиям"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:id="@+id/action_next"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

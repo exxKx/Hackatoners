@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.isVisible
 import com.mobile.hackatoners.R
 import com.mobile.hackatoners.maplevel.utils.Region
@@ -20,6 +21,8 @@ class MapLevelActivity : AppCompatActivity() {
     private val playerHigh by lazy { findViewById<View>(R.id.player_high) }
     private val playerMiddle by lazy { findViewById<View>(R.id.player_middle) }
     private val playerLow by lazy { findViewById<View>(R.id.player_low) }
+
+    private val actionNext by lazy { findViewById<AppCompatButton>(R.id.action_next) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +47,9 @@ class MapLevelActivity : AppCompatActivity() {
         regionLow.setOnClickListener {
             dataHolder.region = Region.LOW.value
             updatePlayerPosition()
+        }
+        actionNext.setOnClickListener {
+            showToast("Открываем локацию ${Region.find(dataHolder.region).name}...")
         }
     }
 
