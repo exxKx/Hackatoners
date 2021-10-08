@@ -37,7 +37,7 @@ class MapLevelActivity : AppCompatActivity() {
             }
         }
         regionMiddle.setOnClickListener {
-            if (dataHolder.isHighRegionUnlocked) {
+            if (dataHolder.isMiddleRegionUnlocked) {
                 dataHolder.region = Region.MIDDLE.value
                 updatePlayerPosition()
             } else {

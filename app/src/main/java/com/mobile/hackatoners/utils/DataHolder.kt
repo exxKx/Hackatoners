@@ -11,10 +11,6 @@ class DataHolder private constructor(
         get() = sharedPreferences.getInt(KEY_MONEY, 0)
         set(value) = sharedPreferences.edit().putInt(KEY_MONEY, value).apply()
 
-    var level: Int
-        get() = sharedPreferences.getInt(KEY_LEVEL, 0)
-        set(value) = sharedPreferences.edit().putInt(KEY_LEVEL, value).apply()
-
     var region: Int
         get() = sharedPreferences.getInt(KEY_REGION, 0)
         set(value) = sharedPreferences.edit().putInt(KEY_REGION, value).apply()
@@ -32,7 +28,6 @@ class DataHolder private constructor(
         private const val XML_FILE_NAME = "com.mobile.hackatoners_preferences"
 
         private const val KEY_MONEY = "money"
-        private const val KEY_LEVEL = "level"
         private const val KEY_REGION = "region"
 
         private const val KEY_MIDDLE_REGION_UNLOCKED = "is_middle_region_unlocked"
