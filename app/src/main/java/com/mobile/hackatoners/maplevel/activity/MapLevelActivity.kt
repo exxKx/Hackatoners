@@ -12,6 +12,10 @@ class MapLevelActivity : AppCompatActivity() {
 
     private val dataHolder by lazy { DataHolder.getInstance(this) }
 
+    private val regionHigh by lazy { findViewById<View>(R.id.high_region) }
+    private val regionMiddle by lazy { findViewById<View>(R.id.middle_region) }
+    private val regionLow by lazy { findViewById<View>(R.id.low_region) }
+
     private val playerHigh by lazy { findViewById<View>(R.id.player_high) }
     private val playerMiddle by lazy { findViewById<View>(R.id.player_middle) }
     private val playerLow by lazy { findViewById<View>(R.id.player_low) }
@@ -19,7 +23,27 @@ class MapLevelActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maplevel)
+        
+        regionHigh.setOnClickListener {
+            dataHolder.region = Region.HIGH.value
+            updatePlayerPosition()
+        }
+        regionMiddle.setOnClickListener {
+            dataHolder.region = Region.MIDDLE.value
+            updatePlayerPosition()
+        }
+        regionLow.setOnClickListener {
+            dataHolder.region = Region.LOW.value
+            updatePlayerPosition()
+        }
+    }
 
+    override fun onResume() {
+        super.onResume()
+        updatePlayerPosition()
+    }
+
+    private fun updatePlayerPosition() {
         Region.find(dataHolder.region).also { region ->
             playerHigh.isVisible = region == Region.HIGH
             playerMiddle.isVisible = region == Region.MIDDLE
