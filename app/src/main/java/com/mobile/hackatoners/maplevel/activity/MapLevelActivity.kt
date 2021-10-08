@@ -2,6 +2,7 @@ package com.mobile.hackatoners.maplevel.activity
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.mobile.hackatoners.R
@@ -23,14 +24,22 @@ class MapLevelActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maplevel)
-        
+
         regionHigh.setOnClickListener {
-            dataHolder.region = Region.HIGH.value
-            updatePlayerPosition()
+            if (dataHolder.isHighRegionUnlocked) {
+                dataHolder.region = Region.HIGH.value
+                updatePlayerPosition()
+            } else {
+                showToast("Вы еще не открыли данную локацию")
+            }
         }
         regionMiddle.setOnClickListener {
-            dataHolder.region = Region.MIDDLE.value
-            updatePlayerPosition()
+            if (dataHolder.isHighRegionUnlocked) {
+                dataHolder.region = Region.MIDDLE.value
+                updatePlayerPosition()
+            } else {
+                showToast("Вы еще не открыли данную локацию")
+            }
         }
         regionLow.setOnClickListener {
             dataHolder.region = Region.LOW.value
@@ -49,5 +58,9 @@ class MapLevelActivity : AppCompatActivity() {
             playerMiddle.isVisible = region == Region.MIDDLE
             playerLow.isVisible = region == Region.LOW
         }
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }
