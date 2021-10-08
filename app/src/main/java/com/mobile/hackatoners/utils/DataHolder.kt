@@ -11,9 +11,13 @@ class DataHolder private constructor(
         get() = sharedPreferences.getInt(KEY_MONEY, 0)
         set(value) = sharedPreferences.edit().putInt(KEY_MONEY, value).apply()
 
-    var region: Int
+    var currentRegion: Int
         get() = sharedPreferences.getInt(KEY_REGION, 0)
         set(value) = sharedPreferences.edit().putInt(KEY_REGION, value).apply()
+
+    var isLowRegionUnlocked: Boolean
+        get() = sharedPreferences.getBoolean(KEY_LOW_REGION_UNLOCKED, true)
+        set(value) = sharedPreferences.edit().putBoolean(KEY_LOW_REGION_UNLOCKED, value).apply()
 
     var isMiddleRegionUnlocked: Boolean
         get() = sharedPreferences.getBoolean(KEY_MIDDLE_REGION_UNLOCKED, false)
@@ -30,6 +34,7 @@ class DataHolder private constructor(
         private const val KEY_MONEY = "money"
         private const val KEY_REGION = "region"
 
+        private const val KEY_LOW_REGION_UNLOCKED = "is_low_region_unlocked"
         private const val KEY_MIDDLE_REGION_UNLOCKED = "is_middle_region_unlocked"
         private const val KEY_HIGH_REGION_UNLOCKED = "is_high_region_unlocked"
 

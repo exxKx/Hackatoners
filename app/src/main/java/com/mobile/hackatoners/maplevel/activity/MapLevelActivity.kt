@@ -30,7 +30,7 @@ class MapLevelActivity : AppCompatActivity() {
 
         regionHigh.setOnClickListener {
             if (dataHolder.isHighRegionUnlocked) {
-                dataHolder.region = Region.HIGH.value
+                dataHolder.currentRegion = Region.HIGH.value
                 updatePlayerPosition()
             } else {
                 showToast("Вы еще не открыли данную локацию")
@@ -38,18 +38,22 @@ class MapLevelActivity : AppCompatActivity() {
         }
         regionMiddle.setOnClickListener {
             if (dataHolder.isMiddleRegionUnlocked) {
-                dataHolder.region = Region.MIDDLE.value
+                dataHolder.currentRegion = Region.MIDDLE.value
                 updatePlayerPosition()
             } else {
                 showToast("Вы еще не открыли данную локацию")
             }
         }
         regionLow.setOnClickListener {
-            dataHolder.region = Region.LOW.value
-            updatePlayerPosition()
+            if (dataHolder.isLowRegionUnlocked) {
+                dataHolder.currentRegion = Region.LOW.value
+                updatePlayerPosition()
+            } else {
+                showToast("Вы еще не открыли данную локацию")
+            }
         }
         actionNext.setOnClickListener {
-            showToast("Открываем локацию ${Region.find(dataHolder.region).name}...")
+            showToast("Открываем локацию ${Region.find(dataHolder.currentRegion).name}...")
         }
     }
 
@@ -59,7 +63,7 @@ class MapLevelActivity : AppCompatActivity() {
     }
 
     private fun updatePlayerPosition() {
-        Region.find(dataHolder.region).also { region ->
+        Region.find(dataHolder.currentRegion).also { region ->
             playerHigh.isVisible = region == Region.HIGH
             playerMiddle.isVisible = region == Region.MIDDLE
             playerLow.isVisible = region == Region.LOW
