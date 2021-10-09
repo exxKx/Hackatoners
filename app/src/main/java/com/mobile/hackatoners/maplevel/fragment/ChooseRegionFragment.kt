@@ -28,10 +28,10 @@ class ChooseRegionFragment : Fragment(R.layout.fragment_choose_region) {
 
     private val lock by lazy { requireView().findViewById<View>(R.id.lock) }
 
-    private val regionLeft by lazy { requireView().findViewById<View>(R.id.left_region) }
-    private val regionRight by lazy { requireView().findViewById<View>(R.id.right_region) }
-    private val regionMiddle by lazy { requireView().findViewById<View>(R.id.middle_region) }
-    private val regionLow by lazy { requireView().findViewById<View>(R.id.low_region) }
+    private val regionForest by lazy { requireView().findViewById<View>(R.id.forest) }
+    private val regionDesert by lazy { requireView().findViewById<View>(R.id.desert) }
+    private val regionWorld by lazy { requireView().findViewById<View>(R.id.world) }
+    private val regionHill by lazy { requireView().findViewById<View>(R.id.hill) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -62,48 +62,48 @@ class ChooseRegionFragment : Fragment(R.layout.fragment_choose_region) {
         lock.isVisible = !dataHolder.isRealWorldUnlocked
 
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-            regionLeft.startAnimation(
+            regionForest.startAnimation(
                 AnimationUtils.loadAnimation(requireContext(), R.anim.float_animation)
             )
             delay(300)
-            regionRight.startAnimation(
+            regionDesert.startAnimation(
                 AnimationUtils.loadAnimation(requireContext(), R.anim.float_animation)
             )
             delay(300)
-            regionMiddle.startAnimation(
+            regionWorld.startAnimation(
                 AnimationUtils.loadAnimation(requireContext(), R.anim.float_animation)
             )
             delay(300)
-            regionLow.startAnimation(
+            regionHill.startAnimation(
                 AnimationUtils.loadAnimation(requireContext(), R.anim.float_animation)
             )
         }
 
-        regionLeft.setOnClickListener {
-            openDetailScreen(Region.LEFT)
+        regionForest.setOnClickListener {
+            openDetailScreen(Region.FOREST)
         }
-        regionRight.setOnClickListener {
-            openDetailScreen(Region.RIGHT)
+        regionDesert.setOnClickListener {
+            openDetailScreen(Region.DESERT)
         }
-        regionMiddle.setOnClickListener {
+        regionWorld.setOnClickListener {
             if (dataHolder.isRealWorldUnlocked) {
-                openDetailScreen(Region.LOW)
+                openDetailScreen(Region.HILL)
             } else {
                 showToast(R.string.complete_other_first)
             }
         }
-        regionLow.setOnClickListener {
-            openDetailScreen(Region.LOW)
+        regionHill.setOnClickListener {
+            openDetailScreen(Region.HILL)
         }
     }
 
     private fun openDetailScreen(region: Region) {
         dataHolder.currentRegion = region.value
         val id = when (region) {
-            Region.LEFT -> R.id.leftFragment
-            Region.RIGHT -> R.id.rightFragment
-            Region.MIDDLE -> R.id.middleFragment
-            Region.LOW -> R.id.lowFragment
+            Region.FOREST -> R.id.leftFragment
+            Region.DESERT -> R.id.rightFragment
+            Region.WORLD -> R.id.middleFragment
+            Region.HILL -> R.id.lowFragment
         }
         findNavController().navigate(id)
     }

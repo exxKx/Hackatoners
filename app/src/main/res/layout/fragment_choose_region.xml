@@ -46,15 +46,15 @@
         android:layout_height="wrap_content"
         android:stateListAnimator="@animator/scale_animator"
         android:src="@drawable/ic_hill"
-        android:id="@+id/low_region"
+        android:id="@+id/hill"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/middle_region"
+        app:layout_constraintTop_toTopOf="@id/world"
         app:layout_constraintBottom_toTopOf="@id/title"
         app:layout_constraintVertical_bias="0.5" />
 
     <TextView
-        android:id="@+id/low_text"
+        android:id="@+id/hill_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -68,26 +68,26 @@
         android:shadowDx="2"
         android:shadowDy="2"
         android:shadowRadius="2"
-        app:layout_constraintTop_toTopOf="@id/low_region"
-        app:layout_constraintBottom_toBottomOf="@id/low_region"
-        app:layout_constraintStart_toStartOf="@id/low_region"
-        app:layout_constraintEnd_toEndOf="@id/low_region" />
+        app:layout_constraintTop_toTopOf="@id/hill"
+        app:layout_constraintBottom_toBottomOf="@id/hill"
+        app:layout_constraintStart_toStartOf="@id/hill"
+        app:layout_constraintEnd_toEndOf="@id/hill" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:stateListAnimator="@animator/scale_animator"
         android:src="@drawable/ic_desert"
-        android:id="@+id/right_region"
+        android:id="@+id/desert"
         app:layout_constraintTop_toBottomOf="@id/menu"
         app:layout_constraintBottom_toTopOf="@id/title"
-        app:layout_constraintStart_toStartOf="@id/middle_region"
+        app:layout_constraintStart_toStartOf="@id/world"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_bias="0.4"
         app:layout_constraintHorizontal_bias="0.8" />
 
     <TextView
-        android:id="@+id/right_text"
+        android:id="@+id/desert_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -103,26 +103,26 @@
         android:shadowRadius="2"
         app:layout_constraintVertical_bias="0.3"
         app:layout_constraintHorizontal_bias="0.8"
-        app:layout_constraintTop_toTopOf="@id/right_region"
-        app:layout_constraintBottom_toBottomOf="@id/right_region"
-        app:layout_constraintStart_toStartOf="@id/right_region"
-        app:layout_constraintEnd_toEndOf="@id/right_region" />
+        app:layout_constraintTop_toTopOf="@id/desert"
+        app:layout_constraintBottom_toBottomOf="@id/desert"
+        app:layout_constraintStart_toStartOf="@id/desert"
+        app:layout_constraintEnd_toEndOf="@id/desert" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:stateListAnimator="@animator/scale_animator"
         android:src="@drawable/ic_forest"
-        android:id="@+id/left_region"
+        android:id="@+id/forest"
         app:layout_constraintTop_toBottomOf="@id/menu"
         app:layout_constraintBottom_toTopOf="@id/title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/middle_region"
+        app:layout_constraintEnd_toEndOf="@id/world"
         app:layout_constraintVertical_bias="0.32"
         app:layout_constraintHorizontal_bias="1" />
 
     <TextView
-        android:id="@+id/left_text"
+        android:id="@+id/forest_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -138,16 +138,16 @@
         android:shadowRadius="2"
         app:layout_constraintVertical_bias="0.2"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintTop_toTopOf="@id/left_region"
-        app:layout_constraintBottom_toBottomOf="@id/left_region"
-        app:layout_constraintStart_toStartOf="@id/left_region"
-        app:layout_constraintEnd_toEndOf="@id/left_region" />
+        app:layout_constraintTop_toTopOf="@id/forest"
+        app:layout_constraintBottom_toBottomOf="@id/forest"
+        app:layout_constraintStart_toStartOf="@id/forest"
+        app:layout_constraintEnd_toEndOf="@id/forest" />
 
     <ImageView
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:stateListAnimator="@animator/scale_animator"
-        android:id="@+id/middle_region"
+        android:id="@+id/world"
         android:src="@drawable/ic_island"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -161,10 +161,10 @@
         android:src="@drawable/ic_lock"
         android:id="@+id/lock"
         app:tint="#26000000"
-        app:layout_constraintTop_toTopOf="@id/middle_region"
-        app:layout_constraintBottom_toBottomOf="@id/middle_region"
-        app:layout_constraintStart_toStartOf="@id/middle_region"
-        app:layout_constraintEnd_toEndOf="@id/middle_region" />
+        app:layout_constraintTop_toTopOf="@id/world"
+        app:layout_constraintBottom_toBottomOf="@id/world"
+        app:layout_constraintStart_toStartOf="@id/world"
+        app:layout_constraintEnd_toEndOf="@id/world" />
 
     <TextView
         android:id="@+id/title"

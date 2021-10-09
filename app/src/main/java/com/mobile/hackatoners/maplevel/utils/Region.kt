@@ -1,10 +1,10 @@
 package com.mobile.hackatoners.maplevel.utils
 
 enum class Region(val value: Int) {
-    LEFT(3),
-    RIGHT(2),
-    MIDDLE(1),
-    LOW(0);
+    FOREST(3),
+    DESERT(2),
+    WORLD(1),
+    HILL(0);
 
     companion object {
 

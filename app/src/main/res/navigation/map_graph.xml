@@ -12,18 +12,18 @@
 
     <fragment
         android:id="@+id/leftFragment"
-        android:name="com.mobile.hackatoners.maplevel.fragment.LeftRegionFragment" />
+        android:name="com.mobile.hackatoners.maplevel.fragment.ForestFragment" />
 
     <fragment
         android:id="@+id/rightFragment"
-        android:name="com.mobile.hackatoners.maplevel.fragment.RightRegionFragment" />
+        android:name="com.mobile.hackatoners.maplevel.fragment.DesertFragment" />
 
     <fragment
         android:id="@+id/middleFragment"
-        android:name="com.mobile.hackatoners.maplevel.fragment.MiddleRegionFragment" />
+        android:name="com.mobile.hackatoners.maplevel.fragment.WorldFragment" />
 
     <fragment
         android:id="@+id/lowFragment"
-        android:name="com.mobile.hackatoners.maplevel.fragment.LowRegionFragment" />
+        android:name="com.mobile.hackatoners.maplevel.fragment.HillFragment" />
 
 </navigation>
