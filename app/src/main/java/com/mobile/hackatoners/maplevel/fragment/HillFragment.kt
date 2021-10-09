@@ -9,6 +9,7 @@ import android.view.View
 import android.view.animation.AnimationUtils
 import android.view.animation.LinearInterpolator
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.mobile.hackatoners.R
 import com.mobile.hackatoners.utils.DataHolder
@@ -20,6 +21,8 @@ class HillFragment : Fragment(R.layout.fragment_hill) {
     private lateinit var backgroundOne: View
     private lateinit var backgroundTwo: View
     private lateinit var hill: ImageView
+    private lateinit var potions: TextView
+    private lateinit var coins: TextView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -27,6 +30,8 @@ class HillFragment : Fragment(R.layout.fragment_hill) {
         backgroundOne = view.findViewById(R.id.background_one)
         backgroundTwo = view.findViewById(R.id.background_two)
         hill = view.findViewById(R.id.hill)
+        potions = view.findViewById(R.id.potions)
+        coins = view.findViewById(R.id.coins)
 
         val bitmap = BitmapFactory.decodeResource(resources, R.drawable.ic_water_tile)
         val tiledImage = BitmapDrawable(resources, bitmap).also {
@@ -56,11 +61,14 @@ class HillFragment : Fragment(R.layout.fragment_hill) {
         )
 
         val image = when (dataHolder.hillLevel) {
-            1 -> R.drawable.bg_hill_1
-            2 -> R.drawable.bg_hill_2
-            3 -> R.drawable.bg_hill_3
+            0 -> R.drawable.bg_hill_1
+            1 -> R.drawable.bg_hill_2
+            2 -> R.drawable.bg_hill_3
             else -> R.drawable.bg_hill_4
         }
         hill.setImageResource(image)
+
+        potions.text = getString(R.string.n_potions, dataHolder.potions)
+        coins.text = getString(R.string.n_coins, dataHolder.coins)
     }
 }

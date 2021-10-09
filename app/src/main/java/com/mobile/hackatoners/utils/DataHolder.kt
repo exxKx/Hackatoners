@@ -7,20 +7,24 @@ class DataHolder private constructor(
     private val sharedPreferences: SharedPreferences
 ) {
 
-    var money: Int
-        get() = sharedPreferences.getInt(KEY_MONEY, 0)
-        set(value) = sharedPreferences.edit().putInt(KEY_MONEY, value).apply()
+    var coins: Int
+        get() = sharedPreferences.getInt(KEY_COINS, 0)
+        set(value) = sharedPreferences.edit().putInt(KEY_COINS, value).apply()
+
+    var potions: Int
+        get() = sharedPreferences.getInt(KEY_POTIONS, 0)
+        set(value) = sharedPreferences.edit().putInt(KEY_POTIONS, value).apply()
 
     var forestLevel: Int
-        get() = sharedPreferences.getInt(KEY_FOREST_LEVEL, 1)
+        get() = sharedPreferences.getInt(KEY_FOREST_LEVEL, 0)
         set(value) = sharedPreferences.edit().putInt(KEY_FOREST_LEVEL, value).apply()
 
     var desertLevel: Int
-        get() = sharedPreferences.getInt(KEY_DESERT_LEVEL, 1)
+        get() = sharedPreferences.getInt(KEY_DESERT_LEVEL, 0)
         set(value) = sharedPreferences.edit().putInt(KEY_DESERT_LEVEL, value).apply()
 
     var hillLevel: Int
-        get() = sharedPreferences.getInt(KEY_HILL_LEVEL, 1)
+        get() = sharedPreferences.getInt(KEY_HILL_LEVEL, 0)
         set(value) = sharedPreferences.edit().putInt(KEY_HILL_LEVEL, value).apply()
 
     var isMapTutorialComplete: Boolean
@@ -35,7 +39,8 @@ class DataHolder private constructor(
 
         private const val XML_FILE_NAME = "com.mobile.hackatoners_preferences"
 
-        private const val KEY_MONEY = "money"
+        private const val KEY_COINS = "coins"
+        private const val KEY_POTIONS = "potions"
 
         private const val KEY_FOREST_LEVEL = "forest_level"
         private const val KEY_DESERT_LEVEL = "desert_level"

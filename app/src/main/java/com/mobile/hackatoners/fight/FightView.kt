@@ -14,6 +14,7 @@ class FightView : ConstraintLayout {
     private var boss: GameObject? = null
     private var timer: Timer? = null
     private var idle = true
+    var listenerFight: FightListener? = null
 
     constructor(context: Context) : super(context) {
         init()
@@ -40,6 +41,7 @@ class FightView : ConstraintLayout {
             player?.idle()
             timer?.cancel()
             timer = null
+            listenerFight?.updateLifeCount(true)
             idle = true
         }
     }
@@ -49,14 +51,15 @@ class FightView : ConstraintLayout {
             boss?.idle()
             timer?.cancel()
             timer = null
+            listenerFight?.updateLifeCount(false)
             idle = true
         }
     }
 
 
     fun createPlayers(x: Int) {
-        player = Player(context, 500f, x)
-        boss = Boss(context, 500f, x)
+        player = Player(context, 700f, x)
+        boss = Boss(context, 700f, x)
         this.addView(player)
         this.addView(boss)
     }
