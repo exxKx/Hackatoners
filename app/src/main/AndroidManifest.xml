@@ -12,7 +12,7 @@
         android:theme="@style/Theme.Hackatoners">
 
         <activity
-            android:name=".fight.FightActivity"
+            android:name=".results.activity.ResultsActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
