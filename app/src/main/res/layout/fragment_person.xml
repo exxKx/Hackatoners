@@ -7,26 +7,78 @@
 
     <LinearLayout
         android:id="@+id/lives"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="28dp"
+        android:layout_width="160dp"
+        android:layout_height="72dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="24dp"
+        android:textColor="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/heart_1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:paddingRight="8dp"
+            android:src="@drawable/heart_live"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/heart_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="8dp"
+            android:src="@drawable/heart_live"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/heart_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="8dp"
+            android:src="@drawable/heart_live"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/heart_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="8dp"
+            android:src="@drawable/heart_live"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/heart_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="8dp"
+            android:src="@drawable/heart_live"
+            android:visibility="gone" />
 
     </LinearLayout>
 
-    <View
+    <TextView
+        android:id="@+id/coins_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_coins"
+        android:gravity="center"
+        android:paddingLeft="40dp"
+        android:paddingTop="24dp"
+        android:text="111 З"
+        android:textColor="@color/black"
+        android:visibility="gone"
+        app:layout_constraintLeft_toRightOf="@+id/lives"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <ImageView
         android:id="@+id/person_what_is_it"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_margin="16dp"
-        android:background="@drawable/ic_question"
+        android:background="?selectableItemBackground"
+        android:src="@drawable/ic_question"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -84,11 +136,12 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <View
+        <ImageView
             android:id="@+id/bonus_icon"
-            android:layout_width="20dp"
-            android:layout_height="40dp"
-            android:background="@color/black"
+            android:layout_width="28dp"
+            android:layout_height="42dp"
+            android:scaleType="center"
+            android:src="@drawable/potion"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bonus_title" />
 
@@ -97,8 +150,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:drawableEnd="@android:drawable/ic_btn_speak_now"
-            android:text="Зелье ВТБ Страхования"
+            android:drawableEnd="@drawable/info"
+            android:text="Зелье ВТБ Страхования  "
             app:layout_constraintLeft_toRightOf="@+id/bonus_icon"
             app:layout_constraintTop_toBottomOf="@+id/bonus_title" />
 
@@ -114,48 +167,60 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <Button
+    <TextView
+        android:gravity="center"
         android:id="@+id/choose_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="160dp"
+        android:layout_height="72dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
+        android:background="#E8EFFF"
         android:text="Button"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@id/choose_3"
         app:layout_constraintEnd_toStartOf="@+id/choose_2"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <TextView
         android:id="@+id/choose_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="160dp"
+        android:layout_height="72dp"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="16dp"
+        android:background="#E8EFFF"
+        android:gravity="center"
         android:text="Button"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@id/choose_3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/choose_1" />
 
-    <Button
+    <TextView
         android:id="@+id/choose_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="160dp"
+        android:layout_height="72dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
+        android:background="#E8EFFF"
+        android:gravity="center"
         android:text="Button"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/choose_4"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <TextView
+        android:gravity="center"
         android:id="@+id/choose_4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="160dp"
+        android:layout_height="72dp"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="16dp"
+        android:background="#E8EFFF"
         android:text="Button"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/choose_3" />
@@ -167,6 +232,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginBottom="16dp"
         android:text="Начать игру"
+        android:textColor="@color/black"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.mobile.hackatoners.R
 import com.mobile.hackatoners.common.show
@@ -56,7 +57,7 @@ class PersonFragment : Fragment(R.layout.fragment_person) {
         showChooser(choose_4, question, 3)
     }
 
-    private fun showChooser(chooser: Button, question: PersonPresenter.Question, index: Int) {
+    private fun showChooser(chooser: TextView, question: PersonPresenter.Question, index: Int) {
         if (question.answers.getOrNull(index) != null) {
             chooser.text = question.answers[index]
             chooser.visibility = View.VISIBLE
@@ -84,8 +85,15 @@ class PersonFragment : Fragment(R.layout.fragment_person) {
     }
 
     fun showHp(hp: Int) {
+        val hearts = listOf<View>(heart_1, heart_2, heart_3, heart_4, heart_5)
+
+        hearts.forEachIndexed { index, view ->
+            view.show(index < hp)
+        }
     }
 
     fun showCoins(coins: Int) {
+        coins_view.show()
+        coins_view.text = "$coins ₽"
     }
 }
