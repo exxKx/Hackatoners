@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import com.google.android.material.button.MaterialButton
 import com.mobile.hackatoners.R
@@ -56,9 +57,11 @@ class ResultsActivity : AppCompatActivity() {
         }
 
         if (intent.getBooleanExtra(IS_VICTORY, true)) {
+            actionShare.isVisible = true
             resultTitle.text = getString(R.string.victory)
             character.setImageResource(R.drawable.char_male_victory)
         } else {
+            actionShare.isVisible = false
             resultTitle.text = getString(R.string.defeat)
             character.setImageResource(R.drawable.char_male_defeat)
         }
