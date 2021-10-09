@@ -10,7 +10,7 @@
         android:id="@+id/fight_scene"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/valley_bg"
+        android:background="@drawable/stage_hill"
         app:layout_constraintBottom_toBottomOf="@+id/horizontal_50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
