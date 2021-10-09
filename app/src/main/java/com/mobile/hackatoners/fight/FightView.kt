@@ -60,8 +60,8 @@ class FightView : ConstraintLayout {
     fun createPlayers(x: Int, y: Int) {
         player = Player(context, height.toFloat(), x)
         boss = Boss(context, y.toFloat(), x)
-        this.addView(player)
         this.addView(boss)
+        this.addView(player)
     }
 
     fun startTimer(player: Boolean) {
