@@ -57,9 +57,9 @@ class FightView : ConstraintLayout {
     }
 
 
-    fun createPlayers(x: Int) {
-        player = Player(context, 700f, x)
-        boss = Boss(context, 700f, x)
+    fun createPlayers(x: Int, y: Int) {
+        player = Player(context, height.toFloat(), x)
+        boss = Boss(context, y.toFloat(), x)
         this.addView(player)
         this.addView(boss)
     }
@@ -87,6 +87,8 @@ class FightView : ConstraintLayout {
         super.onSizeChanged(w, h, oldw, oldh)
         sizeX = getWidth().toFloat()
         sizeY = getHeight().toFloat()
+        player?.setGrounded(sizeY)
+        boss?.setGrounded(sizeY)
     }
 
     override fun onDraw(canvas: Canvas) {

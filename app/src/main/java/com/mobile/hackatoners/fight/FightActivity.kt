@@ -4,7 +4,6 @@ import android.graphics.Point
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import androidx.activity.viewModels
 import com.mobile.hackatoners.R
@@ -12,13 +11,12 @@ import kotlinx.android.synthetic.main.activity_fight.*
 import android.animation.Animator
 
 import android.animation.AnimatorListenerAdapter
+import android.view.View
 
-import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.DecelerateInterpolator
+import com.mobile.hackatoners.utils.DataHolder
 import com.mobile.hackatoners.utils.Region
 
-import com.yy.mobile.rollingtextview.CharOrder
-import com.yy.mobile.rollingtextview.CharOrder.Alphabet
 import com.yy.mobile.rollingtextview.CharOrder.Number
 import com.yy.mobile.rollingtextview.strategy.Direction
 import com.yy.mobile.rollingtextview.strategy.Strategy
@@ -41,7 +39,7 @@ class FightActivity : AppCompatActivity(), FightListener {
         val display = windowManager?.defaultDisplay
         val size = Point()
         display?.getSize(size)
-        fight_scene.createPlayers(size.x)
+        fight_scene.createPlayers(size.x,size.y)
         fight_scene.listenerFight = this
         rolling_text.animationDuration = 500L
         rolling_text.charStrategy = Strategy.CarryBitAnimation(Direction.SCROLL_DOWN)
@@ -87,6 +85,43 @@ class FightActivity : AppCompatActivity(), FightListener {
         fightViewModel.money.observe(this) {
             rolling_text.setText(it.toString())
         }
+        fightViewModel.currentState.observe(this) {
+            it?.let {
+                when(it){
+                    FightState.ONBOARD_1 ->{
+                        unboard_1.visibility = View.VISIBLE
+                        unboard_2.visibility = View.GONE
+                        unboard_3.visibility = View.GONE
+                    }
+                    FightState.ONBOARD_2 ->{
+                        unboard_1.visibility = View.GONE
+                        unboard_2.visibility = View.VISIBLE
+                        unboard_3.visibility = View.GONE
+                    }
+                    FightState.ONBOARD_3 ->{
+                        unboard_1.visibility = View.GONE
+                        unboard_2.visibility = View.GONE
+                        unboard_3.visibility = View.VISIBLE
+                    }
+                    FightState.FIGHT ->{
+                        unboard_1.visibility = View.GONE
+                        unboard_2.visibility = View.GONE
+                        unboard_3.visibility = View.GONE
+                    }
+                }
+            }
+        }
+
+        unboard_1.setOnClickListener {
+            fightViewModel.updateOnboarding()
+        }
+        unboard_2.setOnClickListener {
+            fightViewModel.updateOnboarding()
+        }
+        unboard_3.setOnClickListener {
+            fightViewModel.updateOnboarding()
+        }
+
 
         when (region) { // TODO change background
             Region.FOREST -> Unit
