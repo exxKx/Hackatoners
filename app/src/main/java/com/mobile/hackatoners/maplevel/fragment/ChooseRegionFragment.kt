@@ -18,6 +18,7 @@ import kotlinx.coroutines.delay
 import android.animation.ValueAnimator
 import android.view.animation.LinearInterpolator
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 
 class ChooseRegionFragment : Fragment(R.layout.fragment_choose_region) {
@@ -31,6 +32,8 @@ class ChooseRegionFragment : Fragment(R.layout.fragment_choose_region) {
     private lateinit var regionWorld: ImageView
     private lateinit var regionHill: ImageView
     private lateinit var lock: ImageView
+    private lateinit var potions: TextView
+    private lateinit var coins: TextView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -42,6 +45,8 @@ class ChooseRegionFragment : Fragment(R.layout.fragment_choose_region) {
         regionWorld = view.findViewById(R.id.world)
         regionHill = view.findViewById(R.id.hill)
         lock = view.findViewById(R.id.lock)
+        potions = view.findViewById(R.id.potions)
+        coins = view.findViewById(R.id.coins)
 
         if (!dataHolder.isMapTutorialComplete) {
             findNavController().navigate(R.id.welcomeDialog)
@@ -107,6 +112,9 @@ class ChooseRegionFragment : Fragment(R.layout.fragment_choose_region) {
         regionHill.setOnClickListener {
             openDetailScreen(Region.HILL)
         }
+
+        potions.text = getString(R.string.n_potions, dataHolder.potions)
+        coins.text = getString(R.string.n_coins, dataHolder.coins)
     }
 
     private fun openDetailScreen(region: Region) {

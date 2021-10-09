@@ -5,7 +5,7 @@
     <string name="investland">Инвестландия</string>
     <string name="n_percents">%1$d %</string>
     <string name="n_potions">x%1$d</string>
-    <string name="n_coins">x%1$d ₽</string>
+    <string name="n_coins">%1$d ₽</string>
 
     <string name="complete_other_first">Для начала пройдите остальные уровни</string>
 
