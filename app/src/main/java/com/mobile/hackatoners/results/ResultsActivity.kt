@@ -86,11 +86,11 @@ class ResultsActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val REGION = "region"
-        const val IS_VICTORY = "is_victory"
-        const val ANSWERS_COUNT = "answers_count"
-        const val RIGHT_ANSWERS = "right_answers"
-        const val INFLATION = "inflation"
-        const val ELAPSED_TIME = "elapsed_time"
+        const val REGION = "region" // Value from Region class
+        const val IS_VICTORY = "is_victory" // Boolean
+        const val ANSWERS_COUNT = "answers_count" // Int, All answers (including false ones)
+        const val RIGHT_ANSWERS = "right_answers" // Int, Right answers count
+        const val INFLATION = "inflation" // Int, inflation in rubles
+        const val ELAPSED_TIME = "elapsed_time" // Int, seconds taken for level
     }
 }
