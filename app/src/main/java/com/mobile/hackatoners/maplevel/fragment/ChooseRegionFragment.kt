@@ -17,10 +17,12 @@ import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.delay
 import android.animation.ValueAnimator
 import android.view.animation.LinearInterpolator
+import com.mobile.hackatoners.maplevel.utils.ScreenChanger
 
 class ChooseRegionFragment : Fragment(R.layout.fragment_choose_region) {
 
     private val dataHolder by lazy { DataHolder.getInstance(requireContext()) }
+    private val screenChanger by lazy { requireActivity() as? ScreenChanger }
 
     private val backgroundOne by lazy { requireView().findViewById<View>(R.id.background_one) }
     private val backgroundTwo by lazy { requireView().findViewById<View>(R.id.background_two) }
@@ -48,7 +50,7 @@ class ChooseRegionFragment : Fragment(R.layout.fragment_choose_region) {
         ValueAnimator.ofFloat(0.0f, 1.0f).apply {
             repeatCount = ValueAnimator.INFINITE
             interpolator = LinearInterpolator()
-            duration = 10000L
+            duration = 20000L
             addUpdateListener { animation ->
                 val progress = animation.animatedValue as Float
                 val width = backgroundOne.width.toFloat()
@@ -98,7 +100,13 @@ class ChooseRegionFragment : Fragment(R.layout.fragment_choose_region) {
 
     private fun openDetailScreen(region: Region) {
         dataHolder.currentRegion = region.value
-        // open screen
+        val fragment = when (region) {
+            Region.LEFT -> LeftRegionFragment()
+            Region.RIGHT -> RightRegionFragment()
+            Region.MIDDLE -> MiddleRegionFragment()
+            Region.LOW -> LowRegionFragment()
+        }
+        screenChanger?.replaceWith(fragment, true)
     }
 
     private fun showToast(@StringRes message: Int) {
