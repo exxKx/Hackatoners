@@ -41,6 +41,7 @@
                     android:adjustViewBounds="true"
                     android:src="@drawable/char_male_victory"
                     android:id="@+id/character"
+                    app:layout_constraintVertical_bias="0.65"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -81,6 +82,9 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorHill"
+        android:fillViewport="true"
+        android:id="@+id/results_scroll"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -95,8 +99,92 @@
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:text="Итоги битвы"
+                android:id="@+id/results_text"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="24dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="Правильных ответов"
+                android:id="@+id/right_answers_text"
+                app:layout_constraintTop_toBottomOf="@id/results_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/right_answers_value" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="@string/n_answers"
+                android:id="@+id/right_answers_value"
+                app:layout_constraintTop_toBottomOf="@id/results_text"
+                app:layout_constraintStart_toEndOf="@id/right_answers_text"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="Инфляция"
+                android:id="@+id/inflation_text"
+                app:layout_constraintTop_toBottomOf="@id/right_answers_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/inflation_value" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="@string/n_inflation"
+                android:id="@+id/inflation_value"
+                app:layout_constraintTop_toBottomOf="@id/right_answers_text"
+                app:layout_constraintStart_toEndOf="@id/inflation_text"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="Время боя"
+                android:id="@+id/elapsed_time_text"
+                app:layout_constraintTop_toBottomOf="@id/inflation_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/elapsed_time_value" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="@string/n_elapsed_time"
+                android:id="@+id/elapsed_time_value"
+                app:layout_constraintTop_toBottomOf="@id/inflation_text"
+                app:layout_constraintStart_toEndOf="@id/inflation_text"
                 app:layout_constraintEnd_toEndOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

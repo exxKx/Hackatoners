@@ -6,6 +6,9 @@
     <string name="n_percents">%1$d \%%</string>
     <string name="n_potions">x%1$d</string>
     <string name="n_coins">%1$d ₽</string>
+    <string name="n_answers">%1$d/%2$d</string>
+    <string name="n_inflation">-%1$d ₽</string>
+    <string name="n_elapsed_time">%1$d сек</string>
 
     <string name="complete_other_first">Для начала пройдите остальные уровни</string>
 
