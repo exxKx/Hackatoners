@@ -117,7 +117,7 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
         android:gravity="center"
-        android:text="Расскажи, кто ты по жизни? Чем занимаешься?"
+        android:text="Будем знакомы, путник. Боюсь, великаны наших земель очень опасны для тебя. Держи зелье, оно поможет тебе в битве!"
         android:textColor="@color/black"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"

@@ -121,7 +121,7 @@ class PersonPresenter(val view: PersonFragment) {
 
     private val question12 = Question(
         id = 12,
-        text = "Отлично, а слова «Ebitda, «ROI», «ROA» вам знакомы?",
+        text = "И последний вопрос — стакан на половину пуст или наполовину полон?",
         answers = listOf(
             "Наполовину пуст",
             "Наполовину полон",
