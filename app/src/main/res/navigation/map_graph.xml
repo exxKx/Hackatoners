@@ -9,6 +9,10 @@
         android:id="@+id/welcomeDialog"
         android:name="com.mobile.hackatoners.maplevel.dialog.WelcomeDialog" />
 
+    <dialog
+        android:id="@+id/potionDialog"
+        android:name="com.mobile.hackatoners.maplevel.dialog.PotionDialog" />
+
     <fragment
         android:id="@+id/chooseFragment"
         android:name="com.mobile.hackatoners.maplevel.fragment.ChooseRegionFragment"

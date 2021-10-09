@@ -12,7 +12,7 @@ class DataHolder private constructor(
         set(value) = sharedPreferences.edit().putInt(KEY_COINS, value).apply()
 
     var potions: Int
-        get() = sharedPreferences.getInt(KEY_POTIONS, 0)
+        get() = sharedPreferences.getInt(KEY_POTIONS, 1)
         set(value) = sharedPreferences.edit().putInt(KEY_POTIONS, value).apply()
 
     var forestLevel: Int
