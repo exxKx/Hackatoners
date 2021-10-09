@@ -68,6 +68,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.46" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_lock"
+        android:id="@+id/lock"
+        app:tint="#26000000"
+        app:layout_constraintTop_toTopOf="@id/middle_region"
+        app:layout_constraintBottom_toBottomOf="@id/middle_region"
+        app:layout_constraintStart_toStartOf="@id/middle_region"
+        app:layout_constraintEnd_toEndOf="@id/middle_region"/>
+
     <TextView
         android:id="@+id/title"
         android:layout_width="0dp"

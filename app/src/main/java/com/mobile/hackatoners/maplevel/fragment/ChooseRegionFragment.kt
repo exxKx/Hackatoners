@@ -10,6 +10,7 @@ import com.mobile.hackatoners.utils.DataHolder
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.BitmapFactory
 import android.graphics.Shader
+import androidx.core.view.isVisible
 
 class ChooseRegionFragment : Fragment(R.layout.fragment_choose_region) {
 
@@ -19,6 +20,8 @@ class ChooseRegionFragment : Fragment(R.layout.fragment_choose_region) {
     private val regionRight by lazy { requireView().findViewById<View>(R.id.right_region) }
     private val regionMiddle by lazy { requireView().findViewById<View>(R.id.middle_region) }
     private val regionLow by lazy { requireView().findViewById<View>(R.id.low_region) }
+
+    private val lock by lazy { requireView().findViewById<View>(R.id.lock) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -30,6 +33,8 @@ class ChooseRegionFragment : Fragment(R.layout.fragment_choose_region) {
                 Shader.TileMode.REPEAT
             )
         }
+
+        lock.isVisible = !dataHolder.isRealWorldUnlocked
 
         regionLeft.setOnClickListener {
             openDetailScreen(Region.LEFT)
