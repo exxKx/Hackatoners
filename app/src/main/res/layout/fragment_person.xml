@@ -163,7 +163,7 @@
 
         <ImageView
             android:id="@+id/bonus_icon"
-            android:layout_width="64dp"
+            android:layout_width="66dp"
             android:layout_height="64dp"
             android:src="@drawable/potion"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -184,7 +184,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="16dp"
-            android:background="@drawable/info"
+            android:background="@drawable/ic_info"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="@+id/bonus_text" />
