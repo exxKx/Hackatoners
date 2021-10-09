@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_light"
+    tools:background="@android:color/holo_blue_light"
     tools:context=".MainActivity">
 
     <TextView
@@ -25,7 +25,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_union_3"
+        android:src="@drawable/ic_hill"
         android:id="@+id/low_region"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,30 +36,32 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_union_2"
+        android:src="@drawable/ic_desert"
         android:id="@+id/right_region"
         app:layout_constraintTop_toBottomOf="@id/menu"
         app:layout_constraintBottom_toTopOf="@id/title"
         app:layout_constraintStart_toStartOf="@id/middle_region"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.32" />
+        app:layout_constraintVertical_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.8" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_union_1"
+        android:src="@drawable/ic_forest"
         android:id="@+id/left_region"
         app:layout_constraintTop_toBottomOf="@id/menu"
         app:layout_constraintBottom_toTopOf="@id/title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="@id/middle_region"
-        app:layout_constraintVertical_bias="0.28" />
+        app:layout_constraintVertical_bias="0.32"
+        app:layout_constraintHorizontal_bias="1" />
 
     <ImageView
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:id="@+id/middle_region"
-        android:src="@drawable/ic_union_4"
+        android:src="@drawable/ic_island"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
