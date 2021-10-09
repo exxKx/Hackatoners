@@ -123,11 +123,11 @@ class FightActivity : AppCompatActivity(), FightListener {
         }
 
 
-        when (region) { // TODO change background
-            Region.FOREST -> Unit
-            Region.DESERT -> Unit
+        when (region) {
+            Region.FOREST -> fight_scene.setBackgroundResource(R.drawable.stage_forest)
+            Region.DESERT -> fight_scene.setBackgroundResource(R.drawable.stage_desert)
             Region.WORLD -> Unit // never used
-            Region.HILL -> Unit
+            Region.HILL -> fight_scene.setBackgroundResource(R.drawable.stage_hill)
         }
     }
 
