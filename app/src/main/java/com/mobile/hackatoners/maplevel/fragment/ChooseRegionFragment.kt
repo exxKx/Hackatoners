@@ -5,7 +5,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.mobile.hackatoners.R
-import com.mobile.hackatoners.maplevel.utils.Region
+import com.mobile.hackatoners.utils.Region
 import com.mobile.hackatoners.utils.DataHolder
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.BitmapFactory

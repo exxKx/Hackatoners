@@ -1,6 +1,7 @@
 package com.mobile.hackatoners.maplevel.fragment
 
 import android.animation.ValueAnimator
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.graphics.Shader
 import android.graphics.drawable.BitmapDrawable
@@ -14,7 +15,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.button.MaterialButton
 import com.mobile.hackatoners.R
+import com.mobile.hackatoners.fight.FightActivity
 import com.mobile.hackatoners.utils.DataHolder
+import com.mobile.hackatoners.utils.Region
 
 class HillFragment : Fragment(R.layout.fragment_hill) {
 
@@ -79,7 +82,10 @@ class HillFragment : Fragment(R.layout.fragment_hill) {
             if (dataHolder.potions > 0) {
                 findNavController().navigate(R.id.potionDialog)
             } else {
-                // TODO start fight
+                Intent(requireContext(), FightActivity::class.java).run {
+                    putExtra(FightActivity.REGION, Region.HILL.value)
+                    startActivity(this)
+                }
             }
         }
     }

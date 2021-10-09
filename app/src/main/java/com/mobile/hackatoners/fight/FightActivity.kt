@@ -15,6 +15,7 @@ import android.animation.AnimatorListenerAdapter
 
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.DecelerateInterpolator
+import com.mobile.hackatoners.utils.Region
 
 import com.yy.mobile.rollingtextview.CharOrder
 import com.yy.mobile.rollingtextview.CharOrder.Alphabet
@@ -26,10 +27,13 @@ import com.yy.mobile.rollingtextview.strategy.Strategy
 class FightActivity : AppCompatActivity(), FightListener {
 
     val fightViewModel: FightViewModel by viewModels()
+    
+    private val region by lazy { Region.find(intent.getIntExtra(REGION, Region.FOREST.value)) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fight)
+
         val fight_scene = findViewById<FightView>(R.id.fight_scene)
         val yes_bttn = findViewById<Button>(R.id.yes)
         val no_bttn = findViewById<Button>(R.id.no)
@@ -84,6 +88,12 @@ class FightActivity : AppCompatActivity(), FightListener {
             Log.w("FightActivity", "money $it")
         }
 
+        when (region) { // TODO change background
+            Region.FOREST -> Unit
+            Region.DESERT -> Unit
+            Region.WORLD -> Unit // never used
+            Region.HILL -> Unit
+        }
     }
 
     override fun updateLifeCount(player: Boolean) {
@@ -93,5 +103,9 @@ class FightActivity : AppCompatActivity(), FightListener {
         } else {
             fightViewModel.bossAttack()
         }
+    }
+
+    companion object {
+        const val REGION = "current_region"
     }
 }
