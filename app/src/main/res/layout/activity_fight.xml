@@ -146,6 +146,7 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
                 android:src="@drawable/ic_coins" />
 
             <com.yy.mobile.rollingtextview.RollingTextView
@@ -165,7 +166,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="р"
+                android:text=" ₽"
                 android:textColor="#1d1d1d"
                 android:textSize="16sp" />
 
@@ -186,6 +187,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginTop="16dp"
             android:text="Вопрос 1"
             android:textColor="@color/black"
@@ -201,18 +203,22 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="17dp"
+            android:layout_marginEnd="16dp"
             android:text="Могут ли инвесторы перепродавать облигации компании/государства друг другу?"
             android:textColor="#24272A"
             android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/yes"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/question" />
 
         <androidx.appcompat.widget.AppCompatButton
+            style="?android:attr/borderlessButtonStyle"
             android:id="@+id/yes"
-            android:layout_width="328dp"
+            android:layout_width="match_parent"
             android:layout_height="72dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/rounded_blue"
             android:gravity="start|center_vertical"
@@ -225,9 +231,12 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
+            style="?android:attr/borderlessButtonStyle"
             android:id="@+id/no"
-            android:layout_width="328dp"
+            android:layout_width="match_parent"
             android:layout_height="72dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginBottom="32dp"
             android:background="@drawable/rounded_blue"
             android:gravity="start|center_vertical"
