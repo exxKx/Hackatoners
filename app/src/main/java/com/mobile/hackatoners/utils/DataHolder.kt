@@ -16,15 +16,15 @@ class DataHolder private constructor(
         set(value) = sharedPreferences.edit().putInt(KEY_POTIONS, value).apply()
 
     var forestLevel: Int
-        get() = sharedPreferences.getInt(KEY_FOREST_LEVEL, 1)
+        get() = sharedPreferences.getInt(KEY_FOREST_LEVEL, 0)
         set(value) = sharedPreferences.edit().putInt(KEY_FOREST_LEVEL, value).apply()
 
     var desertLevel: Int
-        get() = sharedPreferences.getInt(KEY_DESERT_LEVEL, 1)
+        get() = sharedPreferences.getInt(KEY_DESERT_LEVEL, 0)
         set(value) = sharedPreferences.edit().putInt(KEY_DESERT_LEVEL, value).apply()
 
     var hillLevel: Int
-        get() = sharedPreferences.getInt(KEY_HILL_LEVEL, 1)
+        get() = sharedPreferences.getInt(KEY_HILL_LEVEL, 0)
         set(value) = sharedPreferences.edit().putInt(KEY_HILL_LEVEL, value).apply()
 
     var isMapTutorialComplete: Boolean

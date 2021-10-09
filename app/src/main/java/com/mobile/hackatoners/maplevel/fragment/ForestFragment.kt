@@ -60,10 +60,10 @@ class ForestFragment : Fragment(R.layout.fragment_forest) {
             AnimationUtils.loadAnimation(requireContext(), R.anim.float_animation_up)
         )
 
-        val image = when (dataHolder.hillLevel) {
-            1 -> R.drawable.bg_forest_1
-            2 -> R.drawable.bg_forest_2
-            3 -> R.drawable.bg_forest_3
+        val image = when (dataHolder.forestLevel) {
+            0 -> R.drawable.bg_forest_1
+            1 -> R.drawable.bg_forest_2
+            2 -> R.drawable.bg_forest_3
             else -> R.drawable.bg_forest_4
         }
         forest.setImageResource(image)

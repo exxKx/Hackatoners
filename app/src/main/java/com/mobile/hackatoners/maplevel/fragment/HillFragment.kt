@@ -61,9 +61,9 @@ class HillFragment : Fragment(R.layout.fragment_hill) {
         )
 
         val image = when (dataHolder.hillLevel) {
-            1 -> R.drawable.bg_hill_1
-            2 -> R.drawable.bg_hill_2
-            3 -> R.drawable.bg_hill_3
+            0 -> R.drawable.bg_hill_1
+            1 -> R.drawable.bg_hill_2
+            2 -> R.drawable.bg_hill_3
             else -> R.drawable.bg_hill_4
         }
         hill.setImageResource(image)

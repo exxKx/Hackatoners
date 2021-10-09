@@ -3,15 +3,15 @@
     <string name="app_name">Hackatoners</string>
 
     <string name="investland">Инвестландия</string>
-    <string name="n_percents">%1$d %</string>
+    <string name="n_percents">%1$d \%%</string>
     <string name="n_potions">x%1$d</string>
     <string name="n_coins">%1$d ₽</string>
 
     <string name="complete_other_first">Для начала пройдите остальные уровни</string>
 
-    <string name="forest_level">Леса\nдивидендов\n%1$d / 4</string>
-    <string name="desert_level">Пустыня\nрисков\n%1$d / 4</string>
-    <string name="hill_level">Долина\nвложений\n%1$d / 4</string>
+    <string name="forest_level">Леса\nдивидендов\n%1$d / 3</string>
+    <string name="desert_level">Пустыня\nрисков\n%1$d / 3</string>
+    <string name="hill_level">Долина\nвложений\n%1$d / 3</string>
 
     <string name="forest">Леса\nдивидендов</string>
     <string name="desert">Пустыня\nрисков</string>

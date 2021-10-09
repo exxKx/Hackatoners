@@ -61,9 +61,9 @@ class DesertFragment : Fragment(R.layout.fragment_desert) {
         )
 
         val image = when (dataHolder.desertLevel) {
-            1 -> R.drawable.bg_desert_1
-            2 -> R.drawable.bg_desert_2
-            3 -> R.drawable.bg_desert_3
+            0 -> R.drawable.bg_desert_1
+            1 -> R.drawable.bg_desert_2
+            2 -> R.drawable.bg_desert_3
             else -> R.drawable.bg_desert_4
         }
         desert.setImageResource(image)
