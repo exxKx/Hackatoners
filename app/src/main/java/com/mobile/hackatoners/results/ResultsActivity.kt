@@ -86,7 +86,7 @@ class ResultsActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val REGION = "region" // Value from Region class
+        const val REGION = "current_region" // Value from Region class
         const val IS_VICTORY = "is_victory" // Boolean
         const val ANSWERS_COUNT = "answers_count" // Int, All answers (including false ones)
         const val RIGHT_ANSWERS = "right_answers" // Int, Right answers count
