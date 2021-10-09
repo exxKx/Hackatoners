@@ -38,6 +38,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
+                    android:src="@drawable/bg_ellipse"
+                    android:id="@+id/ellipse"
+                    app:layout_constraintVertical_bias="0.82"
+                    app:layout_constraintTop_toTopOf="@id/character"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/character"
+                    app:layout_constraintEnd_toEndOf="@id/character" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
                     android:src="@drawable/char_male_victory"
                     android:id="@+id/character"
                     app:layout_constraintVertical_bias="0.65"
@@ -69,7 +81,7 @@
                 android:text="@string/action_share"
                 android:textColor="?colorPrimary"
                 android:id="@+id/action_share"
-                app:cornerRadius="16dp"
+                app:cornerRadius="24dp"
                 app:backgroundTint="@color/white"
                 app:layout_anchor="@id/appbar"
                 app:layout_anchorGravity="center" />
