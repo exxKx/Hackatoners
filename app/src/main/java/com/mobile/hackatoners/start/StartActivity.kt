@@ -2,6 +2,7 @@ package com.mobile.hackatoners.start
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
 import com.mobile.hackatoners.R
 
 class StartActivity : AppCompatActivity() {

@@ -4,14 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.mobile.hackatoners.R
-import com.mobile.hackatoners.common.DialogPresetBuilder
-import com.mobile.hackatoners.common.makeDialog
 import com.mobile.hackatoners.common.show
 import com.mobile.hackatoners.maplevel.activity.MapLevelActivity
-import kotlinx.android.synthetic.main.activity_fight.*
+import com.mobile.hackatoners.maplevel.dialog.InsurenceDialog
 import kotlinx.android.synthetic.main.fragment_person.*
 
 class PersonFragment : Fragment(R.layout.fragment_person) {
@@ -23,6 +20,9 @@ class PersonFragment : Fragment(R.layout.fragment_person) {
 
         presenter.init()
 
+        person_what_is_it.setOnClickListener {
+            // todo
+        }
         person_play.setOnClickListener {
             activity?.startActivity(Intent(context, MapLevelActivity::class.java))
         }
@@ -39,15 +39,9 @@ class PersonFragment : Fragment(R.layout.fragment_person) {
             presenter.chooseClicked(4)
         }
         bonus_text.setOnClickListener {
-            makeDialog(requireContext()) {
-                title("ВТБ Страхование")
-                body(
-                    "«ВТБ Страхование» осуществляет деятельность по всем видам страхования юридических \n" +
-                            "и физических лиц, включая обязательное медицинское страхование и страхование жизни, а также услуги перестрахования\n" +
-                            "<a href='http://google.com'>Подробнее на сайте</a>"
-                )
-                positive("Понятно") { dismiss() }
-            }.show()
+            InsurenceDialog().show(
+                requireFragmentManager(), "bonusDialog"
+            )
         }
 
 
@@ -58,7 +52,7 @@ class PersonFragment : Fragment(R.layout.fragment_person) {
 
         showChooser(choose_1, question, 0)
         showChooser(choose_2, question, 1)
-        showChooser(choose_3, question, 3)
+        showChooser(choose_3, question, 2)
         showChooser(choose_4, question, 3)
     }
 
@@ -79,5 +73,19 @@ class PersonFragment : Fragment(R.layout.fragment_person) {
         choose_4.visibility = View.GONE
 
         person_play.visibility = View.VISIBLE
+    }
+
+    fun showGirl() {
+
+    }
+
+    fun showItPerson() {
+
+    }
+
+    fun showHp(hp: Int) {
+    }
+
+    fun showCoins(coins: Int) {
     }
 }
