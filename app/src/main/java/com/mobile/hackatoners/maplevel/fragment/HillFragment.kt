@@ -29,6 +29,7 @@ class HillFragment : Fragment(R.layout.fragment_hill) {
     private lateinit var potions: TextView
     private lateinit var coins: TextView
     private lateinit var actionFight: MaterialButton
+    private lateinit var actionBack: ImageView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -39,6 +40,7 @@ class HillFragment : Fragment(R.layout.fragment_hill) {
         potions = view.findViewById(R.id.potions)
         coins = view.findViewById(R.id.coins)
         actionFight = view.findViewById(R.id.action_fight)
+        actionBack = view.findViewById(R.id.action_back)
 
         val bitmap = BitmapFactory.decodeResource(resources, R.drawable.ic_water_tile)
         val tiledImage = BitmapDrawable(resources, bitmap).also {
@@ -87,6 +89,9 @@ class HillFragment : Fragment(R.layout.fragment_hill) {
                     startActivity(this)
                 }
             }
+        }
+        actionBack.setOnClickListener {
+            findNavController().popBackStack()
         }
     }
 }
