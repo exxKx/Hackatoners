@@ -34,7 +34,7 @@ class ResultsActivity : AppCompatActivity() {
         inflation = findViewById(R.id.inflation_value)
         elapsedTime = findViewById(R.id.elapsed_time_value)
 
-        when (Region.find(intent.getIntExtra(REGION, Region.FOREST.value))) {
+        when (Region.find(intent.getIntExtra(REGION, Region.HILL.value))) {
             Region.FOREST -> {
                 background.setImageResource(R.drawable.stage_forest)
                 scrollView.setBackgroundColor(
@@ -86,7 +86,7 @@ class ResultsActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val REGION = "region" // Value from Region class
+        const val REGION = "current_region" // Value from Region class
         const val IS_VICTORY = "is_victory" // Boolean
         const val ANSWERS_COUNT = "answers_count" // Int, All answers (including false ones)
         const val RIGHT_ANSWERS = "right_answers" // Int, Right answers count

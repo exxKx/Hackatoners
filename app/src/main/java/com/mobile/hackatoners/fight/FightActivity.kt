@@ -41,6 +41,8 @@ class FightActivity : AppCompatActivity(), FightListener {
         setContentView(R.layout.activity_fight)
 
         val fight_scene = findViewById<FightView>(R.id.fight_scene)
+        val yes_bttn = findViewById<Button>(R.id.yes)
+        val no_bttn = findViewById<Button>(R.id.no)
         val windowManager = windowManager
         val display = windowManager?.defaultDisplay
         val size = Point()
@@ -56,23 +58,11 @@ class FightActivity : AppCompatActivity(), FightListener {
                 //finsih
             }
         })
-        option_1.setOnClickListener {
-            if (fightViewModel.currentQuestion.value?.rightAnswers?.contains(1) == true)
-                fight_scene.startTimer(true)
-            else
-                fight_scene.startTimer(false)
+        yes_bttn.setOnClickListener {
+            fight_scene.startTimer(true)
         }
-        option_2.setOnClickListener {
-            if (fightViewModel.currentQuestion.value?.rightAnswers?.contains(2) == true)
-                fight_scene.startTimer(true)
-            else
-                fight_scene.startTimer(false)
-        }
-        option_3.setOnClickListener {
-            if (fightViewModel.currentQuestion.value?.rightAnswers?.contains(3) == true)
-                fight_scene.startTimer(true)
-            else
-                fight_scene.startTimer(false)
+        no_bttn.setOnClickListener {
+            fight_scene.startTimer(false)
         }
 
         val playersLife = listOf(player_life_1, player_life_2, player_life_3, player_life_4)
@@ -147,17 +137,11 @@ class FightActivity : AppCompatActivity(), FightListener {
             animateShow()
         }
 
-        fightViewModel.currentQuestion.observe(this) {
-            question.text = getString(R.string.question, it.id)
-            question_title.text = getString(it.question)
-            option_1.text = getString(it.answers[0])
-            option_2.text = getString(it.answers[1])
-            if (it.isThreeOptions) {
-                option_3.text = getString(it.answers[2])
-                option_3.visibility = View.VISIBLE
-            } else {
-                option_3.visibility = View.GONE
-            }
+        when (region) {
+            Region.FOREST -> fight_scene.setBackgroundResource(R.drawable.stage_forest)
+            Region.DESERT -> fight_scene.setBackgroundResource(R.drawable.stage_desert)
+            Region.WORLD -> Unit // never used
+            Region.HILL -> fight_scene.setBackgroundResource(R.drawable.stage_hill)
         }
     }
 
@@ -165,11 +149,10 @@ class FightActivity : AppCompatActivity(), FightListener {
         inflation_text?.apply {
             this.visibility = View.VISIBLE
             alpha = 0f
-            animate().alpha(1f).setDuration(1000).setInterpolator(DecelerateInterpolator())
-                .setUpdateListener {
-                    if (it.animatedValue == 1f)
-                        animateHide()
-                }.start()
+            animate().alpha(1f).setDuration(1000).setInterpolator(DecelerateInterpolator()).setUpdateListener {
+                if (it.animatedValue == 1f)
+                    animateHide()
+            }.start()
 
         }
     }
@@ -177,11 +160,10 @@ class FightActivity : AppCompatActivity(), FightListener {
     private fun animateHide() {
         inflation_text?.apply {
             alpha = 1f
-            animate().alpha(0f).setDuration(1000).setInterpolator(DecelerateInterpolator())
-                .setUpdateListener {
-                    if (it.animatedValue == 1f)
-                        this.visibility = View.GONE
-                }.start()
+            animate().alpha(0f).setDuration(1000).setInterpolator(DecelerateInterpolator()).setUpdateListener {
+                if (it.animatedValue == 1f)
+                    this.visibility = View.GONE
+            }.start()
 
         }
     }
@@ -189,6 +171,7 @@ class FightActivity : AppCompatActivity(), FightListener {
     fun startResultActivity(victory: Boolean) {
         fightViewModel.scope.cancel()
         Intent(this, ResultsActivity::class.java).run {
+            putExtra(REGION, region.value)
             putExtra(IS_VICTORY, victory)
             putExtra(ANSWERS_COUNT, fightViewModel.answerCount)
             putExtra(RIGHT_ANSWERS, fightViewModel.rightAnswerCount)

@@ -13,7 +13,10 @@
 
         <activity
             android:name=".start.StartActivity"
-            android:exported="true">
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,49 +25,32 @@
         </activity>
 
         <activity
-            android:name=".finish.FinishActivity"
-            android:exported="true">
-        </activity>
-
-        <activity
-            android:name=".results.ResultsActivity"
-            android:exported="true">
-        </activity>
-
-        <activity
-            android:name=".fight.FightActivity"
-            android:screenOrientation="portrait"
-            android:launchMode="singleTop"
-            android:exported="true"
-            tools:ignore="LockedOrientationActivity">
-<!--            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
-
-        </activity>
-
-<!--        <activity-->
-<!--            android:name=".maplevel.activity.MapLevelActivity"-->
-<!--            android:screenOrientation="portrait"-->
-<!--            android:launchMode="singleTop"-->
-<!--            android:exported="true"-->
-<!--            tools:ignore="LockedOrientationActivity">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
-
-        <activity
             android:name=".maplevel.activity.MapLevelActivity"
             android:screenOrientation="portrait"
             android:launchMode="singleTop"
             android:exported="true"
             tools:ignore="LockedOrientationActivity" />
 
+        <activity
+            android:name=".fight.FightActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name=".results.ResultsActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name=".finish.FinishActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
 
     </application>
 

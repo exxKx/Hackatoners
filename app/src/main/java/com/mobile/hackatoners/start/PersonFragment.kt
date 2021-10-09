@@ -28,6 +28,7 @@ class PersonFragment : Fragment(R.layout.fragment_person) {
         }
         person_play.setOnClickListener {
             activity?.startActivity(Intent(context, MapLevelActivity::class.java))
+            requireActivity().finish()
         }
         choose_1.setOnClickListener {
             presenter.chooseClicked(1)

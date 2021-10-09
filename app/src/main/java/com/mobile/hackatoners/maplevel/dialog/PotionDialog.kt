@@ -14,7 +14,9 @@ class PotionDialog : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return MaterialDialog(requireContext()).show {
             title(R.string.are_you_ready_to_fight)
-            message(R.string.you_can_use_potion)
+            message(R.string.you_can_use_potion) {
+                html()
+            }
             customView(R.layout.dialog_potion, horizontalPadding = true, scrollable = true)
 
             getCustomView().findViewById<MaterialButton>(R.id.action_use_potion)
