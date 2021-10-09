@@ -1,11 +1,16 @@
 package com.mobile.hackatoners.start
 
+import android.content.ActivityNotFoundException
+import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import com.mobile.hackatoners.R
 import com.mobile.hackatoners.common.show
 import com.mobile.hackatoners.maplevel.activity.MapLevelActivity
@@ -22,7 +27,7 @@ class PersonFragment : Fragment(R.layout.fragment_person) {
         presenter.init()
 
         person_what_is_it.setOnClickListener {
-            // todo
+            context?.openUrl("http://test-hackaton.tilda.ws/")
         }
         person_play.setOnClickListener {
             activity?.startActivity(Intent(context, MapLevelActivity::class.java))
@@ -39,7 +44,7 @@ class PersonFragment : Fragment(R.layout.fragment_person) {
         choose_4.setOnClickListener {
             presenter.chooseClicked(4)
         }
-        bonus_text.setOnClickListener {
+        bonus.setOnClickListener {
             InsurenceDialog().show(
                 requireFragmentManager(), "bonusDialog"
             )
@@ -66,6 +71,9 @@ class PersonFragment : Fragment(R.layout.fragment_person) {
     }
 
     fun showResult() {
+        skillet.setImageDrawable(
+            ContextCompat.getDrawable(requireContext(), R.drawable.character_states_done)
+        )
         person_play_text.show(true)
         bonus.show(true)
         person_question.visibility = View.GONE
@@ -78,11 +86,15 @@ class PersonFragment : Fragment(R.layout.fragment_person) {
     }
 
     fun showGirl() {
-
+        skillet.setImageDrawable(
+            ContextCompat.getDrawable(requireContext(), R.drawable.charecter_states)
+        )
     }
 
     fun showItPerson() {
-
+        skillet.setImageDrawable(
+            ContextCompat.getDrawable(requireContext(), R.drawable.charecter_states)
+        )
     }
 
     fun showHp(hp: Int) {
@@ -98,3 +110,16 @@ class PersonFragment : Fragment(R.layout.fragment_person) {
         coins_view.text = "$coins ₽"
     }
 }
+
+fun Context.openUrl(url: String, browserChooser: Boolean = false) {
+    try {
+        if (browserChooser) {
+            Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_BROWSER)
+        } else {
+            Intent(Intent.ACTION_VIEW)
+        }
+            .apply { data = Uri.parse(url) }
+            .also(::startActivity)
+    } catch (e: ActivityNotFoundException) {
+        }
+    }
