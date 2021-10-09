@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.45" />
 
     <LinearLayout
         android:id="@+id/boss_life_container"
@@ -84,14 +84,11 @@
         app:layout_constraintStart_toStartOf="@+id/boss_life_container"
         app:layout_constraintTop_toBottomOf="@+id/boss_life_container" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/inflation_text"
-        android:text="- 200 ₽"
-        android:textColor="@color/orange"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:src="@drawable/inflation_pick"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="55dp"
         android:layout_marginEnd="5dp"
@@ -190,8 +187,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/horizontal_50">
@@ -218,19 +214,31 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
             android:text="Могут ли инвесторы перепродавать облигации компании/государства друг другу?"
             android:textColor="#24272A"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/yes"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/question" />
 
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/bttn_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
         <androidx.appcompat.widget.AppCompatButton
             style="?android:attr/borderlessButtonStyle"
-            android:id="@+id/yes"
+            android:id="@+id/option_3"
             android:layout_width="match_parent"
-            android:layout_height="72dp"
+            android:layout_height="70dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
@@ -240,15 +248,30 @@
             android:text="Конечно, если есть покупатель"
             android:textAllCaps="false"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/no"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:visibility="gone"
+            />
 
         <androidx.appcompat.widget.AppCompatButton
             style="?android:attr/borderlessButtonStyle"
-            android:id="@+id/no"
+            android:id="@+id/option_2"
             android:layout_width="match_parent"
-            android:layout_height="72dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/rounded_blue"
+            android:gravity="start|center_vertical"
+            android:paddingStart="16dp"
+            android:text="Конечно, если есть покупатель"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="?android:attr/borderlessButtonStyle"
+            android:id="@+id/option_1"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="32dp"
@@ -258,12 +281,9 @@
             android:text="Нет, ведь это не акции!"
             android:textAllCaps="false"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            />
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/unboard_1"

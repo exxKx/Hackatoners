@@ -6,12 +6,13 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.mobile.hackatoners.utils.DataHolder
+import com.mobile.hackatoners.utils.Questions
 import com.mobile.hackatoners.utils.SingleLiveEvent
 import kotlinx.coroutines.*
 
-class FightViewModel(app: Application) : AndroidViewModel(app) {
+class FightViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val dataHolder by lazy { DataHolder.getInstance(app.applicationContext) }
+    private val dataHolder by lazy { DataHolder.getInstance(application.applicationContext) }
 
     val playerHP: MutableLiveData<Int> = MutableLiveData(4)
     val bossHP: MutableLiveData<Int> = MutableLiveData(5)
@@ -23,6 +24,8 @@ class FightViewModel(app: Application) : AndroidViewModel(app) {
     var timeOnBoss = 0
     val inflationEvent: SingleLiveEvent<Any> = SingleLiveEvent()
     var inflationSpent = 0
+    val allQuestions = Questions.values().toMutableList()
+    val currentQuestion: MutableLiveData<Questions> = MutableLiveData()
 
     init {
         if (!dataHolder.isFightOnboardingComplete) {
@@ -30,12 +33,21 @@ class FightViewModel(app: Application) : AndroidViewModel(app) {
         } else {
             startTimer()
         }
+        getRandomQuestion()
     }
 
 
     fun bossAttack() {
         answerCount++
         playerHP.value = playerHP.value?.minus(1)
+        if (playerHP.value ?: 0 > 0)
+            getRandomQuestion()
+    }
+
+    fun getRandomQuestion() {
+        val quest = allQuestions.random()
+        allQuestions.remove(quest)
+        currentQuestion.value = quest
     }
 
     fun playerAttack() {
@@ -43,6 +55,8 @@ class FightViewModel(app: Application) : AndroidViewModel(app) {
         rightAnswerCount++
         bossHP.value = bossHP.value?.minus(1)
         money.value = money.value?.plus(500)
+        if (bossHP.value ?: 0 > 0)
+            getRandomQuestion()
     }
 
     fun startOnboarding() {

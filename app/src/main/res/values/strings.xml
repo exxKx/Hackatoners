@@ -39,4 +39,53 @@
     <string name="fight_on_2">За неправильный ответ ты теряешь одну жизнь.</string>
     <string name="fight_on_3">Твои сбережения постепенно съедает инфляция, помни об этом!</string>
 
+    <string name="question">Вопрос %d</string>
+    <string name="question_1_title">Могут ли инвесторы перепродавать облигации компании/государства друг другу?</string>
+    <string name="question_1_answer_1">Конечно, если есть покупатель</string>
+    <string name="question_1_answer_2">Нет, ведь это не акции!</string>
+
+    <string name="question_2_title">Перед вами на выбор есть возможность выкупить несколько выпусков облигаций компаний с разной доходностью, какую вы выберете?</string>
+    <string name="question_2_answer_1">ООО Гром с доходностью 8%</string>
+    <string name="question_2_answer_2">ООО Ивушки с доходностью 40%</string>
+
+    <string name="question_3_title">Обязательно ли держать облигацию до даты погашения?</string>
+    <string name="question_3_answer_1">Не обязательно</string>
+    <string name="question_3_answer_2">Обязательно, иначе ты не получишь обратно деньги</string>
+
+    <string name="question_4_title">Облагается ли НДФЛ весь доход, полученный по облигациям?</string>
+    <string name="question_4_answer_1">Нет, иначе какой смысл их покупать?</string>
+    <string name="question_4_answer_2">Да, кроме дохода по государственным облигациям</string>
+    <string name="question_4_answer_3">Да, необходимо заплатить НДФЛ</string>
+
+    <string name="question_5_title">На что важно обращать внимание при приобретении облигации?</string>
+    <string name="question_5_answer_1">Конечно же на стоимость, купил подешевле, продал подороже</string>
+    <string name="question_5_answer_2">Номинал, дата выпуска и переодичность выплат</string>
+    <string name="question_5_answer_3">На величину купона, дату погашения и сам номинал</string>
+
+    <string name="question_6_title">Что вам, как владельцу облигации нужно сделать чтобы получить номинал в дату погашения?</string>
+    <string name="question_6_answer_1">Ничего, мне всё рассчитают автоматически</string>
+    <string name="question_6_answer_2">Успеть облигации продать до даты погашения</string>
+    <string name="question_6_answer_3">Обратиться к своему брокеру чтобы меня рассчитали</string>
+
+    <string name="question_7_title">Страхует ли Агенство по Страхованию вкладов вложения в облигации?</string>
+    <string name="question_7_answer_1">Конечно</string>
+    <string name="question_7_answer_2">Нет, данные вложения не страхуются</string>
+
+    <string name="question_8_title">Что происходит через 1 год при выпуске 2 летних облигаций с безотзывной офертой на 1 год?</string>
+    <string name="question_8_answer_1">Компания имеет право досрочно погасить облигацию</string>
+    <string name="question_8_answer_2">Держатель облигации имеет право о досрочном погашении</string>
+    <string name="question_8_answer_3">Ничего не произойдёт</string>
+
+    <string name="question_9_title">Вы хотите приобрести надёжную облигацию, какую выберете?</string>
+    <string name="question_9_answer_1">Облигация федерального займа (ОФЗ), погашение 5 мая</string>
+    <string name="question_9_answer_2">ООО МойДоДыр, дата погашения 29 декабря</string>
+    <string name="question_9_answer_3">Облигации госкомпании, погашение 13 декабря</string>
+
+    <string name="question_10_title">Что происходит через 1 год при выпуске 2 летних облигаций с безотзывной офертой на 1 год?</string>
+    <string name="question_10_answer_1">Компания имеет право досрочно погасить облигацию</string>
+    <string name="question_10_answer_2">Держатель облигации имеет право о досрочном погашении</string>
+    <string name="question_10_answer_3">Ничего не произойдёт</string>
+
+
+
 </resources>
