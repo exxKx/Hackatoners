@@ -5,6 +5,10 @@
     android:id="@+id/map_graph"
     app:startDestination="@id/chooseFragment">
 
+    <dialog
+        android:id="@+id/welcomeDialog"
+        android:name="com.mobile.hackatoners.maplevel.dialog.WelcomeDialog" />
+
     <fragment
         android:id="@+id/chooseFragment"
         android:name="com.mobile.hackatoners.maplevel.fragment.ChooseRegionFragment"

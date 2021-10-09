@@ -43,6 +43,11 @@ class ChooseRegionFragment : Fragment(R.layout.fragment_choose_region) {
         regionHill = view.findViewById(R.id.hill)
         lock = view.findViewById(R.id.lock)
 
+        if (!dataHolder.isMapTutorialComplete) {
+            findNavController().navigate(R.id.welcomeDialog)
+            dataHolder.isMapTutorialComplete = true
+        }
+
         val bitmap = BitmapFactory.decodeResource(resources, R.drawable.ic_water_tile)
         val tiledImage = BitmapDrawable(resources, bitmap).also {
             it.setTileModeXY(

@@ -16,4 +16,9 @@
     <string name="desert">Пустыня\nрисков</string>
     <string name="hill">Долина\nвложений</string>
 
+    <string name="welcome_to_investland">Добро пожаловать в Инвестландию!</string>
+    <string name="investland_tutorial">На каждой территории расположились великаны, победи их и захвати эти места, чтобы добраться до последнего!</string>
+
+    <string name="action_alright">Понятно</string>
+
 </resources>
