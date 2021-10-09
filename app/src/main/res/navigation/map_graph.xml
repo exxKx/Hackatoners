@@ -6,8 +6,16 @@
     app:startDestination="@id/chooseFragment">
 
     <dialog
+        android:id="@+id/insuranceDialog"
+        android:name="com.mobile.hackatoners.maplevel.dialog.InsurenceDialog" />
+
+    <dialog
         android:id="@+id/welcomeDialog"
         android:name="com.mobile.hackatoners.maplevel.dialog.WelcomeDialog" />
+
+    <dialog
+        android:id="@+id/potionDialog"
+        android:name="com.mobile.hackatoners.maplevel.dialog.PotionDialog" />
 
     <fragment
         android:id="@+id/chooseFragment"

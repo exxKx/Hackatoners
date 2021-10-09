@@ -1,4 +1,4 @@
-package com.mobile.hackatoners.maplevel.utils
+package com.mobile.hackatoners.utils
 
 enum class Region(val value: Int) {
     FOREST(3),

@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_name">Hackatoners</string>
+    <string name="app_name">Investland</string>
 
     <string name="investland">Инвестландия</string>
     <string name="n_percents">%1$d \%%</string>
@@ -19,8 +19,13 @@
 
     <string name="welcome_to_investland">Добро пожаловать в Инвестландию!</string>
     <string name="investland_tutorial">На каждой территории расположились великаны, победи их и захвати эти места, чтобы добраться до последнего!</string>
+    <string name="are_you_ready_to_fight">Ты готов к битве?</string>
+    <string name="you_can_use_potion">Ты можешь воспользоваться зельем ВТБ Страхования и получть +1 жизнь в битве</string>
 
     <string name="action_alright">Понятно</string>
+    <string name="insurence">"«ВТБ Страхование» осуществляет деятельность по всем видам страхования юридических \n и физических лиц, включая обязательное медицинское страхование и страхование жизни, а также услуги перестрахования\n\n<a href='http://google.com'>Подробнее на сайте</a></string>
     <string name="action_fight">Отправиться в бой</string>
+    <string name="action_go_fight">Вперед в бой</string>
+    <string name="action_use_potion">Использовать зелье x1</string>
 
 </resources>
