@@ -10,8 +10,11 @@ import com.mobile.hackatoners.utils.DataHolder
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.BitmapFactory
 import android.graphics.Shader
+import android.view.animation.AnimationUtils
 import androidx.annotation.StringRes
 import androidx.core.view.isVisible
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.delay
 
 class ChooseRegionFragment : Fragment(R.layout.fragment_choose_region) {
 
@@ -36,6 +39,24 @@ class ChooseRegionFragment : Fragment(R.layout.fragment_choose_region) {
         }
 
         lock.isVisible = !dataHolder.isRealWorldUnlocked
+
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            regionLeft.startAnimation(
+                AnimationUtils.loadAnimation(requireContext(), R.anim.float_animation)
+            )
+            delay(300)
+            regionRight.startAnimation(
+                AnimationUtils.loadAnimation(requireContext(), R.anim.float_animation)
+            )
+            delay(300)
+            regionMiddle.startAnimation(
+                AnimationUtils.loadAnimation(requireContext(), R.anim.float_animation)
+            )
+            delay(300)
+            regionLow.startAnimation(
+                AnimationUtils.loadAnimation(requireContext(), R.anim.float_animation)
+            )
+        }
 
         regionLeft.setOnClickListener {
             openDetailScreen(Region.LEFT)
