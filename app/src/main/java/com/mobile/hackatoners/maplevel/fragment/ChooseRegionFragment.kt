@@ -86,8 +86,6 @@ class ChooseRegionFragment : Fragment(R.layout.fragment_choose_region) {
             }
         }.start()
 
-        lock.isVisible = !dataHolder.isRealWorldUnlocked
-
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             regionForest.startAnimation(
                 AnimationUtils.loadAnimation(requireContext(), R.anim.float_animation_down)
@@ -106,6 +104,25 @@ class ChooseRegionFragment : Fragment(R.layout.fragment_choose_region) {
             )
         }
 
+        val forestPercents = 100 * dataHolder.forestLevel / 3
+        val desertPercents = 100 * dataHolder.desertLevel / 3
+        val hillPercents = 100 * dataHolder.hillLevel / 3
+
+        percents.text = getString(
+            R.string.n_percents,
+            ((forestPercents + desertPercents + hillPercents) / 3)
+        )
+
+        dataHolder.isRealWorldUnlocked = forestPercents >= 99 &&
+                desertPercents >= 99 &&
+                hillPercents >= 99
+
+        lock.isVisible = !dataHolder.isRealWorldUnlocked
+
+        if (dataHolder.isRealWorldUnlocked) {
+            regionWorld.setImageResource(R.drawable.ic_island_active)
+        }
+
         regionForest.setOnClickListener {
             openDetailScreen(Region.FOREST)
         }
@@ -114,7 +131,7 @@ class ChooseRegionFragment : Fragment(R.layout.fragment_choose_region) {
         }
         regionWorld.setOnClickListener {
             if (dataHolder.isRealWorldUnlocked) {
-                openDetailScreen(Region.HILL)
+                openDetailScreen(Region.WORLD)
             } else {
                 showToast(R.string.complete_other_first)
             }
@@ -129,15 +146,6 @@ class ChooseRegionFragment : Fragment(R.layout.fragment_choose_region) {
         forestText.text = getString(R.string.forest_level, dataHolder.forestLevel)
         desertText.text = getString(R.string.desert_level, dataHolder.desertLevel)
         hillText.text = getString(R.string.hill_level, dataHolder.hillLevel)
-
-        val forestPercents = 100 * dataHolder.forestLevel / 3
-        val desertPercents = 100 * dataHolder.desertLevel / 3
-        val hillPercents = 100 * dataHolder.hillLevel / 3
-
-        percents.text = getString(
-            R.string.n_percents,
-            ((forestPercents + desertPercents + hillPercents) / 3)
-        )
     }
 
     private fun openDetailScreen(region: Region) {
