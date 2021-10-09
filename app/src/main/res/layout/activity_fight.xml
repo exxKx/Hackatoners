@@ -84,6 +84,20 @@
         app:layout_constraintStart_toStartOf="@+id/boss_life_container"
         app:layout_constraintTop_toBottomOf="@+id/boss_life_container" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/inflation_text"
+        android:text="- 200 ₽"
+        android:textColor="@color/orange"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="55dp"
+        android:layout_marginEnd="5dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/horizontal_50"/>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
