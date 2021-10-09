@@ -23,7 +23,7 @@
     <string name="welcome_to_investland">Добро пожаловать в Инвестландию!</string>
     <string name="investland_tutorial">На каждой территории расположились великаны, победи их и захвати эти места, чтобы добраться до последнего!</string>
     <string name="are_you_ready_to_fight">Ты готов к битве?</string>
-    <string name="you_can_use_potion">Ты можешь воспользоваться зельем ВТБ Страхования и получть +1 жизнь в битве</string>
+    <string name="you_can_use_potion"><![CDATA[Ты можешь воспользоваться зельем\n <a href=\'http://google.com\'>ВТБ Страхования</a> и получть +1 жизнь в битве]]></string>
 
     <string name="action_alright">Понятно</string>
     <string name="insurence">"<![CDATA[«ВТБ Страхование» осуществляет деятельность по всем видам страхования юридических \n и физических лиц, включая обязательное медицинское страхование и страхование жизни, а также услуги перестрахования\n\n <a href='http://google.com'>Подробнее на сайте</a></b>]]></string>
