@@ -1,7 +1,8 @@
 package com.mobile.hackatoners.maplevel.utils
 
 enum class Region(val value: Int) {
-    HIGH(2),
+    LEFT(3),
+    RIGHT(2),
     MIDDLE(1),
     LOW(0);
 
