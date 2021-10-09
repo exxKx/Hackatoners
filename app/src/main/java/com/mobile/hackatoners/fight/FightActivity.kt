@@ -187,7 +187,7 @@ class FightActivity : AppCompatActivity(), FightListener {
     }
 
     fun startResultActivity(victory: Boolean) {
-        fightViewModel.scope.cancel()
+        viewModelStore.clear()
         Intent(this, ResultsActivity::class.java).run {
             putExtra(IS_VICTORY, victory)
             putExtra(ANSWERS_COUNT, fightViewModel.answerCount)

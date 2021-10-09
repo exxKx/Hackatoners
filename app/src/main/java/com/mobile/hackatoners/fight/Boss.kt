@@ -8,7 +8,7 @@ class Boss(context: Context, height: Float, widthScreen: Int) :
 
     init {
         this.setImageResource(R.drawable.monster_idle)
-        this.x = (42 * widthScreen / 100).toFloat()
+        this.x = (55 * widthScreen / 100).toFloat()
     }
 
     override fun idle() {

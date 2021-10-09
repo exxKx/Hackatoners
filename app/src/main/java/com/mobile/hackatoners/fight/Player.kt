@@ -11,7 +11,7 @@ class Player(context: Context, height: Float, widthScreen: Int) :
 
     init {
         this.setImageResource(R.drawable.degault_man)
-        this.x = (1 * widthScreen / 100).toFloat()
+        this.x = (-1 * widthScreen / 10).toFloat()
     }
 
 
