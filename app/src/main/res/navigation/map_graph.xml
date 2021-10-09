@@ -6,10 +6,6 @@
     app:startDestination="@id/chooseFragment">
 
     <dialog
-        android:id="@+id/insuranceDialog"
-        android:name="com.mobile.hackatoners.maplevel.dialog.InsurenceDialog" />
-
-    <dialog
         android:id="@+id/welcomeDialog"
         android:name="com.mobile.hackatoners.maplevel.dialog.WelcomeDialog" />
 

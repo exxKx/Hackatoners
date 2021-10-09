@@ -1,4 +1,4 @@
-package com.mobile.hackatoners.maplevel.dialog
+package com.mobile.hackatoners.start
 
 import android.app.Dialog
 import android.os.Bundle
