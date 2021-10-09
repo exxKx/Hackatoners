@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/map_graph"
+    app:startDestination="@id/chooseFragment">
+
+    <fragment
+        android:id="@+id/chooseFragment"
+        android:name="com.mobile.hackatoners.maplevel.fragment.ChooseRegionFragment"
+        tools:layout="@layout/fragment_choose_region" />
+
+    <fragment
+        android:id="@+id/leftFragment"
+        android:name="com.mobile.hackatoners.maplevel.fragment.LeftRegionFragment" />
+
+    <fragment
+        android:id="@+id/rightFragment"
+        android:name="com.mobile.hackatoners.maplevel.fragment.RightRegionFragment" />
+
+    <fragment
+        android:id="@+id/middleFragment"
+        android:name="com.mobile.hackatoners.maplevel.fragment.MiddleRegionFragment" />
+
+    <fragment
+        android:id="@+id/lowFragment"
+        android:name="com.mobile.hackatoners.maplevel.fragment.LowRegionFragment" />
+
+</navigation>

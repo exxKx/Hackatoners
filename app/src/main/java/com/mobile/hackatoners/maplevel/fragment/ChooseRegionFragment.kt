@@ -17,22 +17,21 @@ import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.delay
 import android.animation.ValueAnimator
 import android.view.animation.LinearInterpolator
-import com.mobile.hackatoners.maplevel.utils.ScreenChanger
+import androidx.navigation.fragment.findNavController
 
 class ChooseRegionFragment : Fragment(R.layout.fragment_choose_region) {
 
     private val dataHolder by lazy { DataHolder.getInstance(requireContext()) }
-    private val screenChanger by lazy { requireActivity() as? ScreenChanger }
 
     private val backgroundOne by lazy { requireView().findViewById<View>(R.id.background_one) }
     private val backgroundTwo by lazy { requireView().findViewById<View>(R.id.background_two) }
+
+    private val lock by lazy { requireView().findViewById<View>(R.id.lock) }
 
     private val regionLeft by lazy { requireView().findViewById<View>(R.id.left_region) }
     private val regionRight by lazy { requireView().findViewById<View>(R.id.right_region) }
     private val regionMiddle by lazy { requireView().findViewById<View>(R.id.middle_region) }
     private val regionLow by lazy { requireView().findViewById<View>(R.id.low_region) }
-
-    private val lock by lazy { requireView().findViewById<View>(R.id.lock) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -100,13 +99,13 @@ class ChooseRegionFragment : Fragment(R.layout.fragment_choose_region) {
 
     private fun openDetailScreen(region: Region) {
         dataHolder.currentRegion = region.value
-        val fragment = when (region) {
-            Region.LEFT -> LeftRegionFragment()
-            Region.RIGHT -> RightRegionFragment()
-            Region.MIDDLE -> MiddleRegionFragment()
-            Region.LOW -> LowRegionFragment()
+        val id = when (region) {
+            Region.LEFT -> R.id.leftFragment
+            Region.RIGHT -> R.id.rightFragment
+            Region.MIDDLE -> R.id.middleFragment
+            Region.LOW -> R.id.lowFragment
         }
-        screenChanger?.replaceWith(fragment, true)
+        findNavController().navigate(id)
     }
 
     private fun showToast(@StringRes message: Int) {
