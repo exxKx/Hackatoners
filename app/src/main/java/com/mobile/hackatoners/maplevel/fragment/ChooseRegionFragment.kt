@@ -70,19 +70,19 @@ class ChooseRegionFragment : Fragment(R.layout.fragment_choose_region) {
 
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             regionForest.startAnimation(
-                AnimationUtils.loadAnimation(requireContext(), R.anim.float_animation)
+                AnimationUtils.loadAnimation(requireContext(), R.anim.float_animation_down)
             )
             delay(300)
             regionDesert.startAnimation(
-                AnimationUtils.loadAnimation(requireContext(), R.anim.float_animation)
+                AnimationUtils.loadAnimation(requireContext(), R.anim.float_animation_down)
             )
             delay(300)
             regionWorld.startAnimation(
-                AnimationUtils.loadAnimation(requireContext(), R.anim.float_animation)
+                AnimationUtils.loadAnimation(requireContext(), R.anim.float_animation_down)
             )
             delay(300)
             regionHill.startAnimation(
-                AnimationUtils.loadAnimation(requireContext(), R.anim.float_animation)
+                AnimationUtils.loadAnimation(requireContext(), R.anim.float_animation_down)
             )
         }
 
