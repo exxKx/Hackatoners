@@ -28,7 +28,7 @@ class PersonPresenter(val view: PersonFragment) {
     fun chooseClicked(choose: Int) {
         currentQuestionIndex++
 
-        if (data.size < currentQuestionIndex) {
+        if (data.size - 1 < currentQuestionIndex) {
             view.showResult()
         } else {
             view.showQuestion(data[currentQuestionIndex])
