@@ -1,17 +1,66 @@
 package com.mobile.hackatoners.results
 
 import android.os.Bundle
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.NestedScrollView
+import com.google.android.material.button.MaterialButton
 import com.mobile.hackatoners.R
+import com.mobile.hackatoners.utils.Region
 
 class ResultsActivity : AppCompatActivity() {
+
+    private lateinit var background: ImageView // Фон персонажа
+    private lateinit var character: ImageView // Персонаж
+    private lateinit var resultTitle: TextView // Победа! или Поражение!
+    private lateinit var actionShare: MaterialButton // Рассказать об успехах
+    private lateinit var scrollView: NestedScrollView // Фон скролла
+    private lateinit var rightAnswers: TextView // Правильных ответов (результат)
+    private lateinit var inflation: TextView // Инфляция (результат)
+    private lateinit var elapsedTime: TextView // Время боя (результат)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
+
+        background = findViewById(R.id.background)
+        character = findViewById(R.id.character)
+        resultTitle = findViewById(R.id.title)
+        actionShare = findViewById(R.id.action_share)
+        scrollView = findViewById(R.id.results_scroll)
+        rightAnswers = findViewById(R.id.right_answers_value)
+        inflation = findViewById(R.id.inflation_value)
+        elapsedTime = findViewById(R.id.elapsed_time_value)
+
+        when (Region.find(intent.getIntExtra(REGION, Region.DESERT.value))) {
+            Region.FOREST -> {
+                background.setImageResource(R.drawable.stage_forest)
+                scrollView.setBackgroundColor(
+                    resources.getColor(R.color.colorForest)
+                )
+            }
+            Region.DESERT -> {
+                background.setImageResource(R.drawable.stage_desert)
+                scrollView.setBackgroundColor(
+                    resources.getColor(R.color.colorDesert)
+                )
+            }
+            Region.WORLD -> Unit // never used
+            Region.HILL -> {
+                background.setImageResource(R.drawable.stage_hill)
+                scrollView.setBackgroundColor(
+                    resources.getColor(R.color.colorHill)
+                )
+            }
+        }
     }
 
     companion object {
+        const val REGION = "region"
         const val IS_VICTORY = "is_victory"
+        const val RIGHT_ANSWERS = "right_answers"
+        const val INFLATION = "inflation"
+        const val ELAPSED_TIME = "elapsed_time"
     }
 }
