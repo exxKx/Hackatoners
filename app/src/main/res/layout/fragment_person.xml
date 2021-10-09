@@ -163,10 +163,9 @@
 
         <ImageView
             android:id="@+id/bonus_icon"
-            android:layout_width="28dp"
-            android:layout_height="42dp"
-            android:scaleType="center"
-            android:src="@drawable/ic_potion"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/potion"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bonus_title" />
 
@@ -175,7 +174,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
+            android:textColor="@color/black"
             android:text="Зелье ВТБ Страхования  "
+            app:layout_constraintBottom_toTopOf="@+id/bonus_description"
             app:layout_constraintLeft_toRightOf="@+id/bonus_icon"
             app:layout_constraintTop_toBottomOf="@+id/bonus_title" />
 
@@ -191,11 +192,12 @@
         <TextView
             android:id="@+id/bonus_description"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="19dp"
             android:layout_marginLeft="16dp"
             android:text="Дает 1 дополнительную жизнь"
             app:layout_constraintBottom_toBottomOf="@+id/bonus_icon"
-            app:layout_constraintLeft_toRightOf="@+id/bonus_icon" />
+            app:layout_constraintLeft_toRightOf="@+id/bonus_icon"
+            app:layout_constraintTop_toBottomOf="@+id/bonus_text" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
