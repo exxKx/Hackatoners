@@ -28,46 +28,46 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="16dp"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="3dp"
             android:id="@+id/boss_life_1"
-            android:src="@drawable/boss_life" />
-
-        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="3dp"
+            android:src="@drawable/boss_life" />
+
+        <ImageView
             android:id="@+id/boss_life_2"
-            android:src="@drawable/boss_life" />
-
-        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="3dp"
+            android:src="@drawable/boss_life" />
+
+        <ImageView
             android:id="@+id/boss_life_3"
-            android:src="@drawable/boss_life" />
-
-        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="3dp"
+            android:src="@drawable/boss_life" />
+
+        <ImageView
             android:id="@+id/boss_life_4"
-            android:src="@drawable/boss_life" />
-
-        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="3dp"
+            android:src="@drawable/boss_life" />
+
+        <ImageView
             android:id="@+id/boss_life_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
             android:src="@drawable/boss_life" />
 
     </LinearLayout>
@@ -75,68 +75,89 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@+id/boss_life_container"
-        app:layout_constraintEnd_toEndOf="@+id/boss_life_container"
-        app:layout_constraintTop_toBottomOf="@+id/boss_life_container"
         android:layout_marginTop="16dp"
         android:text="Рисклер"
+        android:textColor="@color/black"
         android:textSize="20sp"
-        android:textColor="@color/black"/>
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/boss_life_container"
+        app:layout_constraintStart_toStartOf="@+id/boss_life_container"
+        app:layout_constraintTop_toBottomOf="@+id/boss_life_container" />
 
-    <com.yy.mobile.rollingtextview.RollingTextView
-        android:id="@+id/rolling_text"
+    <LinearLayout
+        android:id="@+id/money_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/horizontal_50"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="20000"
-        android:textSize="25sp"
-        android:textColor="#1d1d1d"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:shadowColor="#ff44ffdd"
-        android:shadowDx="10"
-        android:shadowDy="10"
-        android:shadowRadius="10"/>
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_coins"/>
+
+        <com.yy.mobile.rollingtextview.RollingTextView
+            android:id="@+id/rolling_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:shadowRadius="10"
+            android:layout_gravity="center"
+            android:text="20000"
+            android:textColor="#1d1d1d"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="р"
+            android:layout_gravity="center"
+            android:textColor="#1d1d1d"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/life_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="@+id/horizontal_50"
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="3dp"
             android:id="@+id/player_life_1"
-            android:src="@drawable/heart_live" />
-
-        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="3dp"
+            android:src="@drawable/heart_live" />
+
+        <ImageView
             android:id="@+id/player_life_2"
-            android:src="@drawable/heart_live" />
-
-        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="3dp"
+            android:src="@drawable/heart_live" />
+
+        <ImageView
             android:id="@+id/player_life_3"
-            android:src="@drawable/heart_live" />
-
-        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="3dp"
+            android:src="@drawable/heart_live" />
+
+        <ImageView
             android:id="@+id/player_life_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
             android:src="@drawable/heart_live" />
 
 
@@ -154,8 +175,11 @@
             android:id="@+id/question"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
-            android:text="Вопрос"
+            android:text="Вопрос 1"
+            android:textSize="16sp"
+            android:textStyle="bold"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -165,39 +189,48 @@
             android:id="@+id/question_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:layout_marginStart="16dp"
-            android:text="Источники сообщили, что CEO Apple Тим Кук планирует уйти из компании.
-Акции упадут или вырастут?"
+            android:layout_marginEnd="17dp"
+            android:text="Могут ли инвесторы перепродавать облигации компании/государства друг другу?"
+            android:textColor="#24272A"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/question" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/yes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Вырастут"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/vertical_50"
+            android:layout_width="328dp"
+            android:layout_height="72dp"
+            android:text="Конечно, если есть покупатель"
+            android:gravity="start|center_vertical"
+            android:paddingStart="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/no"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:background="@drawable/rounded_blue"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"
+            android:textAllCaps="false"
+         />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/no"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Упадут"
+            android:layout_width="328dp"
+            android:layout_height="72dp"
+            android:text="Нет, ведь это не акции!"
+            android:gravity="start|center_vertical"
+            android:paddingStart="16dp"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:background="@drawable/rounded_blue"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/vertical_50"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="32dp"
+            />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/vertical_50"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.5" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

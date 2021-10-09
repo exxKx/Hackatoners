@@ -81,14 +81,13 @@ class FightActivity : AppCompatActivity(), FightListener {
             }
         }
         fightViewModel.money.observe(this) {
-            Log.w("FightActivity", "money $it")
+            rolling_text.setText(it.toString())
         }
 
     }
 
     override fun updateLifeCount(player: Boolean) {
         if (player) {
-            rolling_text.setText("19550")
             fightViewModel.playerAttack()
         } else {
             fightViewModel.bossAttack()

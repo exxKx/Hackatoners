@@ -7,7 +7,7 @@ class FightViewModel : ViewModel() {
 
     val playerHP :MutableLiveData<Int> = MutableLiveData(4)
     val bossHP :MutableLiveData<Int> = MutableLiveData(5)
-    val money :MutableLiveData<Int> = MutableLiveData(1000)
+    val money :MutableLiveData<Int> = MutableLiveData(20000)
 
 
     fun bossAttack(){
@@ -16,6 +16,7 @@ class FightViewModel : ViewModel() {
 
     fun playerAttack(){
         bossHP.value = bossHP.value?.minus(1)
+        money.value = money.value?.plus(500)
     }
 
 }
