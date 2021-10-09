@@ -6,15 +6,12 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import com.mobile.hackatoners.R
 import com.mobile.hackatoners.common.show
 import com.mobile.hackatoners.maplevel.activity.MapLevelActivity
-import com.mobile.hackatoners.maplevel.dialog.InsurenceDialog
 import kotlinx.android.synthetic.main.fragment_person.*
 
 class PersonFragment : Fragment(R.layout.fragment_person) {
