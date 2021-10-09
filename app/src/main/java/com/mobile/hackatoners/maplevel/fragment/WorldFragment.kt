@@ -8,5 +8,6 @@ class WorldFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // todo прошли все уровни, поздравляем!
     }
 }
