@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/map_graph"
+    app:startDestination="@id/chooseFragment">
+
+    <dialog
+        android:id="@+id/welcomeDialog"
+        android:name="com.mobile.hackatoners.maplevel.dialog.WelcomeDialog" />
+
+    <fragment
+        android:id="@+id/chooseFragment"
+        android:name="com.mobile.hackatoners.maplevel.fragment.ChooseRegionFragment"
+        tools:layout="@layout/fragment_choose_region" />
+
+    <fragment
+        android:id="@+id/leftFragment"
+        android:name="com.mobile.hackatoners.maplevel.fragment.ForestFragment" />
+
+    <fragment
+        android:id="@+id/rightFragment"
+        android:name="com.mobile.hackatoners.maplevel.fragment.DesertFragment" />
+
+    <fragment
+        android:id="@+id/middleFragment"
+        android:name="com.mobile.hackatoners.maplevel.fragment.WorldFragment" />
+
+    <fragment
+        android:id="@+id/lowFragment"
+        android:name="com.mobile.hackatoners.maplevel.fragment.HillFragment" />
+
+</navigation>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="@android:color/holo_blue_light">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/background_one"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/background_two"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/bg_desert_1"
+        android:id="@+id/desert"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:src="@drawable/ic_potion"
+        android:id="@+id/img_potions"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/potions" />
+
+    <TextView
+        android:id="@+id/potions"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_vertical|start"
+        android:text="@string/n_potions"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/img_coins" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:src="@drawable/ic_coins"
+        android:id="@+id/img_coins"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/coins" />
+
+    <TextView
+        android:id="@+id/coins"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_vertical|start"
+        android:text="@string/n_coins"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/desert"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:alpha="0.3"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintTop_toBottomOf="@id/img_coins"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="?colorPrimary"
+        android:text="@string/action_fight"
+        android:id="@+id/action_fight"
+        app:cornerRadius="16dp"
+        app:backgroundTint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

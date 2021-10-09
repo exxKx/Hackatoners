@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="@android:color/holo_blue_light">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/background_one"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/background_two"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:src="@drawable/ic_potion"
+        android:id="@+id/img_potions"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/potions" />
+
+    <TextView
+        android:id="@+id/potions"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_vertical|start"
+        android:text="@string/n_potions"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/img_coins" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:src="@drawable/ic_coins"
+        android:id="@+id/img_coins"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/coins" />
+
+    <TextView
+        android:id="@+id/coins"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_vertical|start"
+        android:text="@string/n_coins"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stateListAnimator="@animator/scale_animator"
+        android:src="@drawable/ic_hill"
+        android:id="@+id/hill"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/world"
+        app:layout_constraintBottom_toTopOf="@id/title"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <TextView
+        android:id="@+id/hill_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_vertical|start"
+        android:text="@string/hill_level"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:shadowColor="@android:color/black"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        app:layout_constraintTop_toTopOf="@id/hill"
+        app:layout_constraintBottom_toBottomOf="@id/hill"
+        app:layout_constraintStart_toStartOf="@id/hill"
+        app:layout_constraintEnd_toEndOf="@id/hill" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:stateListAnimator="@animator/scale_animator"
+        android:src="@drawable/ic_desert"
+        android:id="@+id/desert"
+        app:layout_constraintTop_toBottomOf="@id/potions"
+        app:layout_constraintBottom_toTopOf="@id/title"
+        app:layout_constraintStart_toStartOf="@id/world"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.8" />
+
+    <TextView
+        android:id="@+id/desert_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_vertical|start"
+        android:text="@string/desert_level"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:shadowColor="@android:color/black"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintTop_toTopOf="@id/desert"
+        app:layout_constraintBottom_toBottomOf="@id/desert"
+        app:layout_constraintStart_toStartOf="@id/desert"
+        app:layout_constraintEnd_toEndOf="@id/desert" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:stateListAnimator="@animator/scale_animator"
+        android:src="@drawable/ic_forest"
+        android:id="@+id/forest"
+        app:layout_constraintTop_toBottomOf="@id/potions"
+        app:layout_constraintBottom_toTopOf="@id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/world"
+        app:layout_constraintVertical_bias="0.32"
+        app:layout_constraintHorizontal_bias="1" />
+
+    <TextView
+        android:id="@+id/forest_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_vertical|start"
+        android:text="@string/forest_level"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:shadowColor="@android:color/black"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_toTopOf="@id/forest"
+        app:layout_constraintBottom_toBottomOf="@id/forest"
+        app:layout_constraintStart_toStartOf="@id/forest"
+        app:layout_constraintEnd_toEndOf="@id/forest" />
+
+    <ImageView
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:stateListAnimator="@animator/scale_animator"
+        android:id="@+id/world"
+        android:src="@drawable/ic_island"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.46" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_lock"
+        android:id="@+id/lock"
+        app:tint="#26000000"
+        app:layout_constraintTop_toTopOf="@id/world"
+        app:layout_constraintBottom_toBottomOf="@id/world"
+        app:layout_constraintStart_toStartOf="@id/world"
+        app:layout_constraintEnd_toEndOf="@id/world" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:gravity="center_vertical|start"
+        android:text="@string/investland"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/percents" />
+
+    <TextView
+        android:id="@+id/percents"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_vertical|start"
+        android:text="@string/n_percents"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/title" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
