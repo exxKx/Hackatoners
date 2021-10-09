@@ -6,6 +6,9 @@
     <string name="n_percents">%1$d \%%</string>
     <string name="n_potions">x%1$d</string>
     <string name="n_coins">%1$d ₽</string>
+    <string name="n_answers">%1$d/%2$d</string>
+    <string name="n_inflation">-%1$d ₽</string>
+    <string name="n_elapsed_time">%1$d сек</string>
 
     <string name="complete_other_first">Для начала пройдите остальные уровни</string>
 
@@ -23,10 +26,14 @@
     <string name="you_can_use_potion">Ты можешь воспользоваться зельем ВТБ Страхования и получть +1 жизнь в битве</string>
 
     <string name="action_alright">Понятно</string>
-    <string name="insurence">"«ВТБ Страхование» осуществляет деятельность по всем видам страхования юридических \n и физических лиц, включая обязательное медицинское страхование и страхование жизни, а также услуги перестрахования\n\n<a href='http://google.com'>Подробнее на сайте</a></string>
+    <string name="insurence">"<![CDATA[«ВТБ Страхование» осуществляет деятельность по всем видам страхования юридических \n и физических лиц, включая обязательное медицинское страхование и страхование жизни, а также услуги перестрахования\n\n <a href='http://google.com'>Подробнее на сайте</a></b>]]></string>
     <string name="action_fight">Отправиться в бой</string>
     <string name="action_go_fight">Вперед в бой</string>
     <string name="action_use_potion">Использовать зелье x1</string>
+    <string name="action_share">Рассказать об успехах</string>
+
+    <string name="victory">Победа!</string>
+    <string name="defeat">Поражение!</string>
 
     <string name="fight_on_1">Твоя задача победить босса. За правильный ответ ты отнимаешь у врага одну жизнь и получаешь 500 монет.</string>
     <string name="fight_on_2">За неправильный ответ ты теряешь одну жизнь.</string>

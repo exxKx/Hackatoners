@@ -9,4 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="white_05">#8FFFFFFF</color>
     <color name="gray_transparent">#5F000000</color>
+
+    <color name="colorHill">#aee6c7</color>
+    <color name="colorForest">#bbf3e7</color>
+    <color name="colorDesert">#fdf6e2</color>
 </resources>
