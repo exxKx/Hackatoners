@@ -33,7 +33,7 @@ class ResultsActivity : AppCompatActivity() {
         inflation = findViewById(R.id.inflation_value)
         elapsedTime = findViewById(R.id.elapsed_time_value)
 
-        when (Region.find(intent.getIntExtra(REGION, Region.DESERT.value))) {
+        when (Region.find(intent.getIntExtra(REGION, Region.FOREST.value))) {
             Region.FOREST -> {
                 background.setImageResource(R.drawable.stage_forest)
                 scrollView.setBackgroundColor(
@@ -54,11 +54,38 @@ class ResultsActivity : AppCompatActivity() {
                 )
             }
         }
+
+        if (intent.getBooleanExtra(IS_VICTORY, true)) {
+            resultTitle.text = getString(R.string.victory)
+            character.setImageResource(R.drawable.char_male_victory)
+        } else {
+            resultTitle.text = getString(R.string.defeat)
+            character.setImageResource(R.drawable.char_male_defeat)
+        }
+
+        rightAnswers.text = getString(
+            R.string.n_answers,
+            intent.getIntExtra(RIGHT_ANSWERS, 0),
+            intent.getIntExtra(ANSWERS_COUNT, 0),
+        )
+        inflation.text = getString(
+            R.string.n_inflation,
+            intent.getIntExtra(INFLATION, 0)
+        )
+        elapsedTime.text = getString(
+            R.string.n_elapsed_time,
+            intent.getIntExtra(ELAPSED_TIME, 0)
+        )
+
+        actionShare.setOnClickListener {
+            // todo open share intent
+        }
     }
 
     companion object {
         const val REGION = "region"
         const val IS_VICTORY = "is_victory"
+        const val ANSWERS_COUNT = "answers_count"
         const val RIGHT_ANSWERS = "right_answers"
         const val INFLATION = "inflation"
         const val ELAPSED_TIME = "elapsed_time"
