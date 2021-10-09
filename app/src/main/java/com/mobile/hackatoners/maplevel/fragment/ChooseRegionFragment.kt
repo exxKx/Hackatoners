@@ -10,6 +10,7 @@ import com.mobile.hackatoners.utils.DataHolder
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.BitmapFactory
 import android.graphics.Shader
+import androidx.annotation.StringRes
 import androidx.core.view.isVisible
 
 class ChooseRegionFragment : Fragment(R.layout.fragment_choose_region) {
@@ -46,7 +47,7 @@ class ChooseRegionFragment : Fragment(R.layout.fragment_choose_region) {
             if (dataHolder.isRealWorldUnlocked) {
                 openDetailScreen(Region.LOW)
             } else {
-                showToast("Для начала пройдите остальные уровни")
+                showToast(R.string.complete_other_first)
             }
         }
         regionLow.setOnClickListener {
@@ -59,7 +60,7 @@ class ChooseRegionFragment : Fragment(R.layout.fragment_choose_region) {
         // open screen
     }
 
-    private fun showToast(message: String) {
+    private fun showToast(@StringRes message: Int) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 }

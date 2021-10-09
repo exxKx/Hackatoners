@@ -6,8 +6,10 @@
     <string name="menu">Меню</string>
     <string name="n_percents">%1$d %</string>
 
-    <string name="region_left">Леса дивидендов</string>
-    <string name="region_right">Пустыня рисков</string>
-    <string name="region_low">Долина вложений</string>
+    <string name="complete_other_first">Для начала пройдите остальные уровни</string>
+
+    <string name="region_left">Леса\nдивидендов\n%1$d / 4</string>
+    <string name="region_right">Пустыня\nрисков\n%1$d / 4</string>
+    <string name="region_low">Долина\nвложений\n%1$d / 4</string>
 
 </resources>
