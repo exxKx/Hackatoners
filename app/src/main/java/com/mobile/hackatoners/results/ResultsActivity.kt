@@ -34,7 +34,7 @@ class ResultsActivity : AppCompatActivity() {
         inflation = findViewById(R.id.inflation_value)
         elapsedTime = findViewById(R.id.elapsed_time_value)
 
-        when (Region.find(intent.getIntExtra(REGION, Region.FOREST.value))) {
+        when (Region.find(intent.getIntExtra(REGION, Region.HILL.value))) {
             Region.FOREST -> {
                 background.setImageResource(R.drawable.stage_forest)
                 scrollView.setBackgroundColor(

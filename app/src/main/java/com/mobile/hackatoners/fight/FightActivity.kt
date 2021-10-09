@@ -136,6 +136,13 @@ class FightActivity : AppCompatActivity(), FightListener {
         fightViewModel.inflationEvent.observe(this) {
             animateShow()
         }
+
+        when (region) {
+            Region.FOREST -> fight_scene.setBackgroundResource(R.drawable.stage_forest)
+            Region.DESERT -> fight_scene.setBackgroundResource(R.drawable.stage_desert)
+            Region.WORLD -> Unit // never used
+            Region.HILL -> fight_scene.setBackgroundResource(R.drawable.stage_hill)
+        }
     }
 
     private fun animateShow() {
@@ -164,6 +171,7 @@ class FightActivity : AppCompatActivity(), FightListener {
     fun startResultActivity(victory: Boolean) {
         fightViewModel.scope.cancel()
         Intent(this, ResultsActivity::class.java).run {
+            putExtra(REGION, region.value)
             putExtra(IS_VICTORY, victory)
             putExtra(ANSWERS_COUNT, fightViewModel.answerCount)
             putExtra(RIGHT_ANSWERS, fightViewModel.rightAnswerCount)
