@@ -105,7 +105,6 @@ class ChooseRegionFragment : Fragment(R.layout.fragment_choose_region) {
     }
 
     private fun openDetailScreen(region: Region) {
-        dataHolder.currentRegion = region.value
         val id = when (region) {
             Region.FOREST -> R.id.leftFragment
             Region.DESERT -> R.id.rightFragment

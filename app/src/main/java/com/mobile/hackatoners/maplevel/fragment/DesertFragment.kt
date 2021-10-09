@@ -11,8 +11,11 @@ import android.view.animation.LinearInterpolator
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.mobile.hackatoners.R
+import com.mobile.hackatoners.utils.DataHolder
 
 class DesertFragment : Fragment(R.layout.fragment_desert) {
+
+    private val dataHolder by lazy { DataHolder.getInstance(requireContext()) }
 
     private lateinit var backgroundOne: View
     private lateinit var backgroundTwo: View
@@ -51,5 +54,13 @@ class DesertFragment : Fragment(R.layout.fragment_desert) {
         desert.startAnimation(
             AnimationUtils.loadAnimation(requireContext(), R.anim.float_animation_up)
         )
+
+        val image = when (dataHolder.desertLevel) {
+            1 -> R.drawable.bg_desert_1
+            2 -> R.drawable.bg_desert_2
+            3 -> R.drawable.bg_desert_3
+            else -> R.drawable.bg_desert_4
+        }
+        desert.setImageResource(image)
     }
 }
