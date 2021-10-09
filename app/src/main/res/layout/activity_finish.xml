@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/finish_content"
+    tools:context=".finish.FinishActivity"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/finish_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:text="Закрыть"
+        android:textAllCaps="true"
+        android:textColor="#004EFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/finish_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Поздравляем"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/finish_close" />
+
+    <TextView
+        android:id="@+id/finish_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="Ты освободил Инвестландию и себя от всех Страхов инвестиций. Жители теперь
+не боятся инвестировать и в стране вырос уровень жизни, благодаря тебе."
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/finish_bg_image"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/finish_header" />
+
+    <ImageView
+        android:id="@+id/finish_bg_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/finish_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/finish_score_text"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:textSize="16sp"
+        android:layout_marginTop="48dp"
+        android:text="Твой результат в игре"
+        app:layout_constraintStart_toStartOf="@+id/finish_bg_image"
+        app:layout_constraintTop_toTopOf="@+id/finish_bg_image" />
+
+    <TextView
+        android:id="@+id/finish_score_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="8dp"
+        android:text="Поделиться успехом с друзьями"
+        android:textColor="#0094FF"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/finish_bg_image"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="8dp"
+        android:text="50 000p"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/finish_bg_image"
+        app:layout_constraintTop_toBottomOf="@+id/finish_score_text" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="24dp"
+        android:text="Не теряй настрой и попробуй себя\nв реальных иинвестициях вместе\nс ВТБ Банком."
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/finish_btn_main"
+        app:layout_constraintStart_toStartOf="@+id/finish_bg_image" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/finish_btn_main"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="16dp"
+        android:text="Попробовать вместе с ВТБ"
+        app:cornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/finish_bg_image"
+        app:layout_constraintRight_toRightOf="@+id/finish_bg_image" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
