@@ -2,12 +2,51 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/splash">
+    android:background="#129EFF"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/splash_description_bg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/splash_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:scaleX="1.1"
+        android:scaleY="1.1"
+        android:id="@+id/splash_cloud_bg"
+        android:layout_marginTop="15dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/splash_cloud"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="72dp"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.28"
+        android:text="Как известно, деньги сами себяне\nзаработают! Проверь свои знания\nв новой игре.\nПравильно отвечай на вопросы\nи побеждай врагов"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_start"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/splash_description_bg" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_start"
-        style="@style/Widget.MaterialComponents.Button"
+        android:elevation="0dp"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_marginStart="16dp"
