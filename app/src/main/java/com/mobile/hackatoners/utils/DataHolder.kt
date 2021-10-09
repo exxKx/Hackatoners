@@ -35,6 +35,10 @@ class DataHolder private constructor(
         get() = sharedPreferences.getBoolean(KEY_REAL_WORLD_UNLOCKED, false)
         set(value) = sharedPreferences.edit().putBoolean(KEY_REAL_WORLD_UNLOCKED, value).apply()
 
+    var isFightOnboardingComplete: Boolean
+        get() = sharedPreferences.getBoolean(FIGHT_ONBOARDING_COMPLETE, false)
+        set(value) = sharedPreferences.edit().putBoolean(FIGHT_ONBOARDING_COMPLETE, value).apply()
+
     companion object {
 
         private const val XML_FILE_NAME = "com.mobile.hackatoners_preferences"
@@ -48,6 +52,8 @@ class DataHolder private constructor(
 
         private const val KEY_MAP_TUTORIAL_COMPLETE = "is_map_tutorial_complete"
         private const val KEY_REAL_WORLD_UNLOCKED = "is_real_world_unlocked"
+
+        private const val FIGHT_ONBOARDING_COMPLETE = "fight_onboarding_complete"
 
         private var dataHolder: DataHolder? = null
 

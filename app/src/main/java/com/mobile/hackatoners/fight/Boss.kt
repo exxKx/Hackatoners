@@ -7,13 +7,16 @@ class Boss(context: Context, height: Float, widthScreen: Int) :
     GameObject(context, height, widthScreen) {
 
     init {
-        this.setImageResource(R.drawable.red_walk_1)
-        this.x = (47 * widthScreen / 100).toFloat()
-        this.y = height
+        this.setImageResource(R.drawable.monster_idle)
+        this.x = (42 * widthScreen / 100).toFloat()
     }
 
     override fun idle() {
-        this.setImageResource(R.drawable.red_walk_1)
+        this.setImageResource(R.drawable.monster_idle)
+    }
+
+    override fun setGrounded(height: Float) {
+        this.y = height / 2 - 156f
     }
 
     override fun run(toObject: GameObject) {
@@ -24,15 +27,15 @@ class Boss(context: Context, height: Float, widthScreen: Int) :
         increaseAttackCount()
         when (imCount) {
             0 -> {
-                this.setImageResource(R.drawable.red_attc_1)
+                this.setImageResource(R.drawable.monster_attack_1)
                 return false
             }
             1 -> {
-                this.setImageResource(R.drawable.red_attc_2)
+                this.setImageResource(R.drawable.monster_attack_2)
                 return false
             }
             2 -> {
-                this.setImageResource(R.drawable.red_attc_3)
+                this.setImageResource(R.drawable.monster_attack_3)
                 return false
             }
             3 -> {

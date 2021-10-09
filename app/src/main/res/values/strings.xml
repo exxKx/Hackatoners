@@ -28,4 +28,8 @@
     <string name="action_go_fight">Вперед в бой</string>
     <string name="action_use_potion">Использовать зелье x1</string>
 
+    <string name="fight_on_1">Твоя задача победить босса. За правильный ответ ты отнимаешь у врага одну жизнь и получаешь 500 монет.</string>
+    <string name="fight_on_2">За неправильный ответ ты теряешь одну жизнь.</string>
+    <string name="fight_on_3">Твои сбережения постепенно съедает инфляция, помни об этом!</string>
+
 </resources>

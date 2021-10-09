@@ -12,7 +12,7 @@ abstract class GameObject(context: Context, var height : Float,var widthScreen :
         this.y = height
     }
     companion object{
-        const val ANIMATE_COUNT = 7
+        const val ANIMATE_COUNT = 4
     }
 
     protected var animateCount = 0
@@ -23,6 +23,8 @@ abstract class GameObject(context: Context, var height : Float,var widthScreen :
     abstract fun attack() : Boolean
 
     abstract fun idle()
+
+    abstract fun setGrounded(height : Float)
 
     protected fun increaseAttackCount() {
         if (animateCount < ANIMATE_COUNT) {
