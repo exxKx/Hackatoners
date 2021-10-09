@@ -17,24 +17,31 @@ import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.delay
 import android.animation.ValueAnimator
 import android.view.animation.LinearInterpolator
+import android.widget.ImageView
 import androidx.navigation.fragment.findNavController
 
 class ChooseRegionFragment : Fragment(R.layout.fragment_choose_region) {
 
     private val dataHolder by lazy { DataHolder.getInstance(requireContext()) }
 
-    private val backgroundOne by lazy { requireView().findViewById<View>(R.id.background_one) }
-    private val backgroundTwo by lazy { requireView().findViewById<View>(R.id.background_two) }
-
-    private val lock by lazy { requireView().findViewById<View>(R.id.lock) }
-
-    private val regionForest by lazy { requireView().findViewById<View>(R.id.forest) }
-    private val regionDesert by lazy { requireView().findViewById<View>(R.id.desert) }
-    private val regionWorld by lazy { requireView().findViewById<View>(R.id.world) }
-    private val regionHill by lazy { requireView().findViewById<View>(R.id.hill) }
+    private lateinit var backgroundOne: View
+    private lateinit var backgroundTwo: View
+    private lateinit var regionForest: ImageView
+    private lateinit var regionDesert: ImageView
+    private lateinit var regionWorld: ImageView
+    private lateinit var regionHill: ImageView
+    private lateinit var lock: ImageView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        backgroundOne = view.findViewById(R.id.background_one)
+        backgroundTwo = view.findViewById(R.id.background_two)
+        regionForest = view.findViewById(R.id.forest)
+        regionDesert = view.findViewById(R.id.desert)
+        regionWorld = view.findViewById(R.id.world)
+        regionHill = view.findViewById(R.id.hill)
+        lock = view.findViewById(R.id.lock)
 
         val bitmap = BitmapFactory.decodeResource(resources, R.drawable.ic_water_tile)
         val tiledImage = BitmapDrawable(resources, bitmap).also {
