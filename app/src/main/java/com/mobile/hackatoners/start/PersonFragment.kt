@@ -66,6 +66,7 @@ class PersonFragment : Fragment(R.layout.fragment_person) {
     }
 
     fun showResult() {
+        person_play_text.show(true)
         bonus.show(true)
         person_question.visibility = View.GONE
         choose_1.visibility = View.GONE
