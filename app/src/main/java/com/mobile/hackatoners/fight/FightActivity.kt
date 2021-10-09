@@ -15,6 +15,7 @@ import android.content.Intent
 import android.view.View
 
 import android.view.animation.DecelerateInterpolator
+import androidx.core.view.ViewCompat.animate
 import com.mobile.hackatoners.results.ResultsActivity
 import com.mobile.hackatoners.results.ResultsActivity.Companion.ANSWERS_COUNT
 import com.mobile.hackatoners.results.ResultsActivity.Companion.ELAPSED_TIME
@@ -161,14 +162,32 @@ class FightActivity : AppCompatActivity(), FightListener {
         }
     }
 
+    private fun hideQuestionsView(view: View) {
+        view.apply {
+            alpha = 1f
+            animate().alpha(0f).setDuration(220).setInterpolator(DecelerateInterpolator())
+                .withEndAction {
+                    fightViewModel.getRandomQuestion()
+                    showQuestionsView(this)
+                }.start()
+        }
+    }
+
+    private fun showQuestionsView(view: View) {
+        view.apply {
+            alpha = 0f
+            animate().alpha(1f).setDuration(220).setInterpolator(DecelerateInterpolator()).start()
+        }
+    }
+
+
     private fun animateShow() {
         inflation_text?.apply {
             this.visibility = View.VISIBLE
             alpha = 0f
             animate().alpha(1f).setDuration(1000).setInterpolator(DecelerateInterpolator())
-                .setUpdateListener {
-                    if (it.animatedValue == 1f)
-                        animateHide()
+                .withEndAction {
+                    animateHide()
                 }.start()
 
         }
@@ -178,9 +197,8 @@ class FightActivity : AppCompatActivity(), FightListener {
         inflation_text?.apply {
             alpha = 1f
             animate().alpha(0f).setDuration(1000).setInterpolator(DecelerateInterpolator())
-                .setUpdateListener {
-                    if (it.animatedValue == 1f)
-                        this.visibility = View.GONE
+                .withEndAction {
+                    this.visibility = View.GONE
                 }.start()
 
         }
@@ -200,6 +218,7 @@ class FightActivity : AppCompatActivity(), FightListener {
 
 
     override fun updateLifeCount(player: Boolean) {
+        hideQuestionsView(quiest_container)
         if (player) {
             fightViewModel.playerAttack()
         } else {

@@ -40,8 +40,6 @@ class FightViewModel(application: Application) : AndroidViewModel(application) {
     fun bossAttack() {
         answerCount++
         playerHP.value = playerHP.value?.minus(1)
-        if (playerHP.value ?: 0 > 0)
-            getRandomQuestion()
     }
 
     fun getRandomQuestion() {
@@ -55,8 +53,7 @@ class FightViewModel(application: Application) : AndroidViewModel(application) {
         rightAnswerCount++
         bossHP.value = bossHP.value?.minus(1)
         money.value = money.value?.plus(500)
-        if (bossHP.value ?: 0 > 0)
-            getRandomQuestion()
+
     }
 
     fun startOnboarding() {
