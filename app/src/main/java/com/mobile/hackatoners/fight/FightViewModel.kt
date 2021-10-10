@@ -27,6 +27,7 @@ class FightViewModel(application: Application) : AndroidViewModel(application) {
     var inflationSpent = 0
     val allQuestions = Questions.values().toMutableList()
     val currentQuestion: MutableLiveData<Questions> = MutableLiveData()
+    val isGirl : Boolean = dataHolder.girl
 
     init {
         if (!dataHolder.isFightOnboardingComplete) {

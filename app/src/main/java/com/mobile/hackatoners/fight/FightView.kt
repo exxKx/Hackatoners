@@ -57,8 +57,8 @@ class FightView : ConstraintLayout {
     }
 
 
-    fun createPlayers(x: Int, y: Int) {
-        player = Player(context, height.toFloat(), x)
+    fun createPlayers(x: Int, y: Int, girl: Boolean) {
+        player = Player(context, height.toFloat(), x, girl)
         boss = Boss(context, y.toFloat(), x)
         this.addView(boss)
         this.addView(player)
@@ -71,7 +71,7 @@ class FightView : ConstraintLayout {
                 timer = Timer()
             timer?.schedule(object : TimerTask() {
                 override fun run() {
-                    handler.post(Runnable {
+                    handler?.post(Runnable {
                         if (player)
                             playerAttack()
                         else

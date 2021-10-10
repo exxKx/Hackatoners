@@ -48,7 +48,7 @@ class FightActivity : AppCompatActivity(), FightListener {
         val display = windowManager?.defaultDisplay
         val size = Point()
         display?.getSize(size)
-        fight_scene.createPlayers(size.x, size.y)
+        fight_scene.createPlayers(size.x, size.y, fightViewModel.isGirl)
         fight_scene.listenerFight = this
         rolling_text.animationDuration = 500L
         rolling_text.charStrategy = Strategy.CarryBitAnimation(Direction.SCROLL_DOWN)
@@ -85,7 +85,7 @@ class FightActivity : AppCompatActivity(), FightListener {
             for (i in playersLife.indices) {
                 fightViewModel.startHp?.let {
                     if (it < 4) {
-                    playersLife[3].visibility = View.GONE
+                        playersLife[3].visibility = View.GONE
                     }
                     if (it < 3) {
                         playersLife[2].visibility = View.GONE
