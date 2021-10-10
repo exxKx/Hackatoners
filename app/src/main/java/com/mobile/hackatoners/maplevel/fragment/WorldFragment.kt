@@ -1,6 +1,7 @@
 package com.mobile.hackatoners.maplevel.fragment
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.*
 import android.content.pm.PackageManager
@@ -20,6 +21,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.mobile.hackatoners.R
+import com.mobile.hackatoners.utils.DataHolder
 import kotlinx.android.synthetic.main.activity_finish.*
 import java.io.File
 import java.io.FileOutputStream
@@ -39,6 +41,8 @@ class WorldFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        total_coins.text = DataHolder.getInstance(requireContext()).coins.toString() + "р"
 
         finish_score_share.setOnClickListener {
             if (ContextCompat.checkSelfPermission(
