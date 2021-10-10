@@ -1,6 +1,8 @@
 package com.mobile.hackatoners.results
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -101,7 +103,7 @@ class ResultsActivity : AppCompatActivity() {
                 LayoutInflater.from(this)
                     .inflate(R.layout.layout_card_victory, card_view)
                 action_buy.setOnClickListener {
-                    // todo open buy url
+                    startVtbInvest()
                 }
                 action_continue.setOnClickListener {
                     finish()
@@ -118,7 +120,7 @@ class ResultsActivity : AppCompatActivity() {
                     }
                 }
                 action_buy.setOnClickListener {
-                    // todo open buy url
+                    startVtbInvest()
                 }
                 action_continue.setOnClickListener {
                     finish()
@@ -139,6 +141,24 @@ class ResultsActivity : AppCompatActivity() {
             }
             val shareIntent = Intent.createChooser(sendIntent, null)
             startActivity(shareIntent)
+        }
+    }
+
+    private fun startVtbInvest() {
+        try {
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("market://details?id=ru.vtb.invest")
+                )
+            )
+        } catch (e: ActivityNotFoundException) {
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://play.google.com/store/apps/details?id=ru.vtb.invest")
+                )
+            )
         }
     }
 

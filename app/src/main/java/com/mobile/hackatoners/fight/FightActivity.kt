@@ -227,6 +227,7 @@ class FightActivity : AppCompatActivity(), FightListener {
             putExtra(INFLATION, fightViewModel.inflationSpent)
             startActivity(this)
         }
+        finish()
     }
 
 
