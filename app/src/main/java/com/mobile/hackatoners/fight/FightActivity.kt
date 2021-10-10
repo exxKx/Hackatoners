@@ -229,7 +229,8 @@ class FightActivity : AppCompatActivity(), FightListener {
     }
 
     fun startResultActivity(victory: Boolean) {
-        fightViewModel.saveMoney()
+        if (victory)
+            fightViewModel.saveMoney()
         viewModelStore.clear()
         Intent(this, ResultsActivity::class.java).run {
             putExtra(REGION, region.value)
