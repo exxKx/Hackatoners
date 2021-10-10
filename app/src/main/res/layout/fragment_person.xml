@@ -175,7 +175,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:textColor="@color/black"
-            android:text="Зелье ВТБ Страхования  "
+            android:text="Зелье ВТБ Страхования"
+            app:layout_constraintVertical_chainStyle="packed"
             app:layout_constraintBottom_toTopOf="@+id/bonus_description"
             app:layout_constraintLeft_toRightOf="@+id/bonus_icon"
             app:layout_constraintTop_toBottomOf="@+id/bonus_title" />
@@ -195,6 +196,7 @@
             android:layout_height="19dp"
             android:layout_marginLeft="16dp"
             android:text="Дает 1 дополнительную жизнь"
+            app:layout_constraintVertical_chainStyle="packed"
             app:layout_constraintBottom_toBottomOf="@+id/bonus_icon"
             app:layout_constraintLeft_toRightOf="@+id/bonus_icon"
             app:layout_constraintTop_toBottomOf="@+id/bonus_text" />
