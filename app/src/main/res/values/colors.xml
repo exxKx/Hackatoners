@@ -14,4 +14,6 @@
     <color name="colorForest">#bbf3e7</color>
     <color name="colorDesert">#fdf6e2</color>
     <color name="orange">#FFA336</color>
+    <color name="dark">#24272A</color>
+
 </resources>
