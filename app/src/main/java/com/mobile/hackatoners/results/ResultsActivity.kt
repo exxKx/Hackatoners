@@ -1,5 +1,6 @@
 package com.mobile.hackatoners.results
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
@@ -81,7 +82,12 @@ class ResultsActivity : AppCompatActivity() {
         )
 
         actionShare.setOnClickListener {
-            // todo open share intent
+            val sendIntent = Intent(Intent.ACTION_SEND).apply {
+                putExtra(Intent.EXTRA_TEXT, "This is my text to send.")
+                type = "text/plain"
+            }
+            val shareIntent = Intent.createChooser(sendIntent, null)
+            startActivity(shareIntent)
         }
     }
 

@@ -35,7 +35,7 @@ class FightActivity : AppCompatActivity(), FightListener {
 
     val fightViewModel: FightViewModel by viewModels()
 
-    private val region by lazy { Region.find(intent.getIntExtra(REGION, Region.FOREST.value)) }
+    private val region by lazy { Region.find(intent.getIntExtra(REGION, Region.HILL.value)) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -156,7 +156,7 @@ class FightActivity : AppCompatActivity(), FightListener {
         }
 
         fightViewModel.currentQuestion.observe(this) {
-            question.text = getString(R.string.question, it.id)
+            question.text = getString(R.string.question, fightViewModel.answerCount + 1)
             question_title.text = getString(it.question)
             option_1.text = getString(it.answers[0])
             option_2.text = getString(it.answers[1])
@@ -222,6 +222,7 @@ class FightActivity : AppCompatActivity(), FightListener {
             putExtra(INFLATION, fightViewModel.inflationSpent)
             startActivity(this)
         }
+        finish()
     }
 
 
