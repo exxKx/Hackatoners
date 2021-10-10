@@ -83,6 +83,18 @@ class FightActivity : AppCompatActivity(), FightListener {
         fightViewModel.playerHP.observe(this) {
             Log.w("FightActivity", "playerHP $it")
             for (i in playersLife.indices) {
+                fightViewModel.startHp?.let {
+                    if (it < 4) {
+                    playersLife[3].visibility = View.GONE
+                    }
+                    if (it < 3) {
+                        playersLife[2].visibility = View.GONE
+                    }
+                    if (it < 2) {
+                        playersLife[1].visibility = View.GONE
+                    }
+                }
+
                 if (i <= it - 1) {
                     playersLife[i].setImageResource(R.drawable.heart_live)
                 } else {
@@ -217,6 +229,7 @@ class FightActivity : AppCompatActivity(), FightListener {
     }
 
     fun startResultActivity(victory: Boolean) {
+        fightViewModel.saveMoney()
         viewModelStore.clear()
         Intent(this, ResultsActivity::class.java).run {
             putExtra(REGION, region.value)
