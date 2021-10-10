@@ -70,6 +70,10 @@ class HillFragment : Fragment(R.layout.fragment_hill) {
         )
 
         actionFight.setOnClickListener {
+            if (dataHolder.hillLevel >= 3) {
+                findNavController().popBackStack()
+                return@setOnClickListener
+            }
             if (dataHolder.potions > 0) {
                 findNavController().navigate(R.id.potionDialog)
             } else {
@@ -90,7 +94,10 @@ class HillFragment : Fragment(R.layout.fragment_hill) {
             0 -> R.drawable.bg_hill_1
             1 -> R.drawable.bg_hill_2
             2 -> R.drawable.bg_hill_3
-            else -> R.drawable.bg_hill_4
+            else -> {
+                actionFight.text = getString(R.string.action_back_to_map)
+                R.drawable.bg_hill_4
+            }
         }
         hill.setImageResource(image)
 

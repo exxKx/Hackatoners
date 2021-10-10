@@ -70,6 +70,10 @@ class DesertFragment : Fragment(R.layout.fragment_desert) {
         )
 
         actionFight.setOnClickListener {
+            if (dataHolder.desertLevel >= 3) {
+                findNavController().popBackStack()
+                return@setOnClickListener
+            }
             if (dataHolder.potions > 0) {
                 findNavController().navigate(R.id.potionDialog)
             } else {
@@ -86,12 +90,14 @@ class DesertFragment : Fragment(R.layout.fragment_desert) {
 
     override fun onResume() {
         super.onResume()
-
         val image = when (dataHolder.desertLevel) {
             0 -> R.drawable.bg_desert_1
             1 -> R.drawable.bg_desert_2
             2 -> R.drawable.bg_desert_3
-            else -> R.drawable.bg_desert_4
+            else -> {
+                actionFight.text = getString(R.string.action_back_to_map)
+                R.drawable.bg_desert_4
+            }
         }
         desert.setImageResource(image)
 

@@ -31,6 +31,7 @@
     <string name="action_go_fight">Вперед в бой</string>
     <string name="action_use_potion">Использовать зелье x1</string>
     <string name="action_share">Рассказать об успехах</string>
+    <string name="action_back_to_map">Вернуться на карту</string>
 
     <string name="victory">Победа!</string>
     <string name="defeat">Поражение!</string>

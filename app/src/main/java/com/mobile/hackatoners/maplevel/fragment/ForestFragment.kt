@@ -70,6 +70,10 @@ class ForestFragment : Fragment(R.layout.fragment_forest) {
         )
 
         actionFight.setOnClickListener {
+            if (dataHolder.forestLevel >= 3) {
+                findNavController().popBackStack()
+                return@setOnClickListener
+            }
             if (dataHolder.potions > 0) {
                 findNavController().navigate(R.id.potionDialog)
             } else {
@@ -90,7 +94,10 @@ class ForestFragment : Fragment(R.layout.fragment_forest) {
             0 -> R.drawable.bg_forest_1
             1 -> R.drawable.bg_forest_2
             2 -> R.drawable.bg_forest_3
-            else -> R.drawable.bg_forest_4
+            else -> {
+                actionFight.text = getString(R.string.action_back_to_map)
+                R.drawable.bg_forest_4
+            }
         }
         forest.setImageResource(image)
 
