@@ -142,6 +142,12 @@ class ResultsActivity : AppCompatActivity() {
             }
             LayoutInflater.from(this)
                 .inflate(R.layout.layout_card_defeat, card_view)
+
+            group.referencedIds.forEach {
+                findViewById<View>(it).setOnClickListener {
+                    startVtbSchool()
+                }
+            }
             action_try_again.setOnClickListener {
                 Intent(this, FightActivity::class.java).run {
                     putExtra(FightActivity.REGION, region.value)
