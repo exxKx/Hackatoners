@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:text="На что обратить внимание:"
+        android:id="@+id/header1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:text="Вот тут описание где он допустил ошибку и описываем теорию"
+        android:id="@+id/desc1"
+        app:layout_constraintTop_toBottomOf="@id/header1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/potion"
+        android:id="@+id/bonus"
+        app:layout_constraintTop_toBottomOf="@id/desc1"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:text="Бесплатно обучиться"
+        android:id="@+id/free_education"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toTopOf="@id/bonus"
+        app:layout_constraintBottom_toTopOf="@id/school"
+        app:layout_constraintStart_toEndOf="@id/bonus" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:textSize="14sp"
+        android:text="Школа Инвесторов ВТБ"
+        android:id="@+id/school"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/free_education"
+        app:layout_constraintBottom_toBottomOf="@id/bonus"
+        app:layout_constraintStart_toEndOf="@id/bonus" />
+
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/ic_next"
+        android:id="@+id/next"
+        app:layout_constraintTop_toTopOf="@id/bonus"
+        app:layout_constraintBottom_toBottomOf="@id/bonus"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:text="Хотите купить облигации?"
+        android:id="@+id/header2"
+        app:layout_constraintTop_toBottomOf="@id/bonus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.constraintlayout.widget.Group
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/group"
+        app:constraint_referenced_ids="school,next,free_education,bonus"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:text="ВТБ Банк поможет вам в этом с помощью приложения ВТБ Инвестиции"
+        android:id="@+id/desc2"
+        app:layout_constraintTop_toBottomOf="@id/header2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginTop="12dp"
+        android:text="Купить облигации"
+        android:id="@+id/action_buy"
+        app:cornerRadius="16dp"
+        app:layout_constraintTop_toBottomOf="@id/desc2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginTop="8dp"
+        android:textColor="?colorPrimary"
+        android:text="Продолжить играть"
+        android:id="@+id/action_continue"
+        app:backgroundTint="#26004EFF"
+        app:cornerRadius="16dp"
+        app:layout_constraintTop_toBottomOf="@id/action_buy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

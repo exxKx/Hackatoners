@@ -69,18 +69,11 @@ class DesertFragment : Fragment(R.layout.fragment_desert) {
             AnimationUtils.loadAnimation(requireContext(), R.anim.float_animation_up)
         )
 
-        val image = when (dataHolder.desertLevel) {
-            0 -> R.drawable.bg_desert_1
-            1 -> R.drawable.bg_desert_2
-            2 -> R.drawable.bg_desert_3
-            else -> R.drawable.bg_desert_4
-        }
-        desert.setImageResource(image)
-
-        potions.text = getString(R.string.n_potions, dataHolder.potions)
-        coins.text = getString(R.string.n_coins, dataHolder.coins)
-
         actionFight.setOnClickListener {
+            if (dataHolder.desertLevel >= 3) {
+                findNavController().popBackStack()
+                return@setOnClickListener
+            }
             if (dataHolder.potions > 0) {
                 findNavController().navigate(R.id.potionDialog)
             } else {
@@ -93,5 +86,22 @@ class DesertFragment : Fragment(R.layout.fragment_desert) {
         actionBack.setOnClickListener {
             findNavController().popBackStack()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val image = when (dataHolder.desertLevel) {
+            0 -> R.drawable.bg_desert_1
+            1 -> R.drawable.bg_desert_2
+            2 -> R.drawable.bg_desert_3
+            else -> {
+                actionFight.text = getString(R.string.action_back_to_map)
+                R.drawable.bg_desert_4
+            }
+        }
+        desert.setImageResource(image)
+
+        potions.text = getString(R.string.n_potions, dataHolder.potions)
+        coins.text = getString(R.string.n_coins, dataHolder.coins)
     }
 }

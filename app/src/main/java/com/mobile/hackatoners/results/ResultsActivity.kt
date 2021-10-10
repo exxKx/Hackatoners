@@ -3,6 +3,7 @@ package com.mobile.hackatoners.results
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -10,11 +11,17 @@ import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import com.google.android.material.button.MaterialButton
 import com.mobile.hackatoners.R
+import com.mobile.hackatoners.utils.DataHolder
 import com.mobile.hackatoners.utils.Region
 import kotlinx.android.synthetic.main.activity_result.*
+import kotlinx.android.synthetic.main.layout_card_semi_victory.*
 import kotlinx.android.synthetic.main.layout_card_victory.*
+import kotlinx.android.synthetic.main.layout_card_victory.action_buy
+import kotlinx.android.synthetic.main.layout_card_victory.action_continue
 
 class ResultsActivity : AppCompatActivity() {
+
+    private val dataHolder by lazy { DataHolder.getInstance(this) }
 
     private lateinit var background: ImageView // Фон персонажа
     private lateinit var character: ImageView // Персонаж
@@ -38,14 +45,21 @@ class ResultsActivity : AppCompatActivity() {
         inflation = findViewById(R.id.inflation_value)
         elapsedTime = findViewById(R.id.elapsed_time_value)
 
+        val isVictory = intent.getBooleanExtra(IS_VICTORY, true)
         when (Region.find(intent.getIntExtra(REGION, Region.HILL.value))) {
             Region.FOREST -> {
+                if (isVictory) {
+                    dataHolder.forestLevel += 1
+                }
                 background.setImageResource(R.drawable.stage_forest)
                 scrollView.setBackgroundColor(
                     resources.getColor(R.color.colorForest)
                 )
             }
             Region.DESERT -> {
+                if (isVictory) {
+                    dataHolder.desertLevel += 1
+                }
                 background.setImageResource(R.drawable.stage_desert)
                 scrollView.setBackgroundColor(
                     resources.getColor(R.color.colorDesert)
@@ -53,6 +67,9 @@ class ResultsActivity : AppCompatActivity() {
             }
             Region.WORLD -> Unit // never used
             Region.HILL -> {
+                if (isVictory) {
+                    dataHolder.hillLevel += 1
+                }
                 background.setImageResource(R.drawable.stage_hill)
                 scrollView.setBackgroundColor(
                     resources.getColor(R.color.colorHill)
@@ -76,7 +93,7 @@ class ResultsActivity : AppCompatActivity() {
             intent.getIntExtra(ELAPSED_TIME, 0)
         )
 
-        if (intent.getBooleanExtra(IS_VICTORY, true)) {
+        if (isVictory) {
             actionShare.isVisible = true
             resultTitle.text = getString(R.string.victory)
             character.setImageResource(R.drawable.char_male_victory)
@@ -84,14 +101,28 @@ class ResultsActivity : AppCompatActivity() {
                 LayoutInflater.from(this)
                     .inflate(R.layout.layout_card_victory, card_view)
                 action_buy.setOnClickListener {
-
+                    // todo open buy url
                 }
                 action_continue.setOnClickListener {
                     finish()
                 }
             } else {
                 LayoutInflater.from(this)
-                    .inflate(R.layout.layout_card_victory, card_view) // todo semi- victory
+                    .inflate(R.layout.layout_card_semi_victory, card_view)
+
+                desc2.text = "blyat!! nado uspet"
+
+                group.referencedIds.forEach {
+                    findViewById<View>(it).setOnClickListener {
+                        // TODO open school url
+                    }
+                }
+                action_buy.setOnClickListener {
+                    // todo open buy url
+                }
+                action_continue.setOnClickListener {
+                    finish()
+                }
             }
         } else {
             actionShare.isVisible = false

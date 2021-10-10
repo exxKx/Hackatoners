@@ -22,12 +22,14 @@ import com.mobile.hackatoners.results.ResultsActivity.Companion.ELAPSED_TIME
 import com.mobile.hackatoners.results.ResultsActivity.Companion.INFLATION
 import com.mobile.hackatoners.results.ResultsActivity.Companion.IS_VICTORY
 import com.mobile.hackatoners.results.ResultsActivity.Companion.RIGHT_ANSWERS
+import com.mobile.hackatoners.start.openUrl
 import com.mobile.hackatoners.utils.DataHolder
 import com.mobile.hackatoners.utils.Region
 
 import com.yy.mobile.rollingtextview.CharOrder.Number
 import com.yy.mobile.rollingtextview.strategy.Direction
 import com.yy.mobile.rollingtextview.strategy.Strategy
+import kotlinx.android.synthetic.main.fragment_person.*
 import kotlinx.coroutines.cancel
 
 
@@ -167,6 +169,9 @@ class FightActivity : AppCompatActivity(), FightListener {
                 option_3.visibility = View.GONE
             }
         }
+        what_is_it.setOnClickListener {
+            this.openUrl("http://test-hackaton.tilda.ws/")
+        }
     }
 
     private fun hideQuestionsView(view: View) {
@@ -222,7 +227,6 @@ class FightActivity : AppCompatActivity(), FightListener {
             putExtra(INFLATION, fightViewModel.inflationSpent)
             startActivity(this)
         }
-        finish()
     }
 
 
