@@ -83,16 +83,21 @@ class FightActivity : AppCompatActivity(), FightListener {
         fightViewModel.playerHP.observe(this) {
             Log.w("FightActivity", "playerHP $it")
             for (i in playersLife.indices) {
-                fightViewModel.startHp?.let {
-                    if (it < 4) {
-                        playersLife[3].visibility = View.GONE
+                var startHp = fightViewModel.startHp ?: 3
+                if (startHp < 4) {
+                    // больше 4 хп быть не может
+                    if (intent.getBooleanExtra(IS_POTION_USED, false)) {
+                        startHp += 1
                     }
-                    if (it < 3) {
-                        playersLife[2].visibility = View.GONE
-                    }
-                    if (it < 2) {
-                        playersLife[1].visibility = View.GONE
-                    }
+                }
+                if (startHp < 4) {
+                    playersLife[3].visibility = View.GONE
+                }
+                if (startHp < 3) {
+                    playersLife[2].visibility = View.GONE
+                }
+                if (startHp < 2) {
+                    playersLife[1].visibility = View.GONE
                 }
 
                 if (i <= it - 1) {
@@ -255,5 +260,6 @@ class FightActivity : AppCompatActivity(), FightListener {
 
     companion object {
         const val REGION = "current_region"
+        const val IS_POTION_USED = "is_potion_used"
     }
 }

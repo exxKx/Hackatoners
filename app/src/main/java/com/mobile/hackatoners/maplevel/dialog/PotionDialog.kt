@@ -10,10 +10,12 @@ import com.afollestad.materialdialogs.customview.getCustomView
 import com.google.android.material.button.MaterialButton
 import com.mobile.hackatoners.R
 import com.mobile.hackatoners.fight.FightActivity
+import com.mobile.hackatoners.utils.DataHolder
 import com.mobile.hackatoners.utils.Region
 
 class PotionDialog : DialogFragment() {
 
+    private val dataHolder by lazy { DataHolder.getInstance(requireContext()) }
     private val region by lazy {
         Region.find(arguments?.getInt(FightActivity.REGION) ?: Region.HILL.value)
     }
@@ -28,9 +30,10 @@ class PotionDialog : DialogFragment() {
 
             getCustomView().findViewById<MaterialButton>(R.id.action_use_potion)
                 .setOnClickListener {
-                    // TODO use 1 potion
+                    dataHolder.potions -= 1
                     Intent(requireContext(), FightActivity::class.java).run {
                         putExtra(FightActivity.REGION, region.value)
+                        putExtra(FightActivity.IS_POTION_USED, true)
                         startActivity(this)
                     }
                     dismiss()
@@ -39,6 +42,7 @@ class PotionDialog : DialogFragment() {
                 .setOnClickListener {
                     Intent(requireContext(), FightActivity::class.java).run {
                         putExtra(FightActivity.REGION, region.value)
+                        putExtra(FightActivity.IS_POTION_USED, false)
                         startActivity(this)
                     }
                     dismiss()
