@@ -1,6 +1,8 @@
 package com.mobile.hackatoners.start
 
-class PersonPresenter(val view: PersonFragment) {
+import com.mobile.hackatoners.utils.DataHolder
+
+class PersonPresenter(val view: PersonFragment, val dataHolder: DataHolder) {
 
     private var currentQuestionIndex = 0
     private var hp = 1
@@ -31,6 +33,8 @@ class PersonPresenter(val view: PersonFragment) {
         currentQuestionIndex++
 
         if (data.size - 1 < currentQuestionIndex) {
+            dataHolder.coins = coins
+            dataHolder.hp = hp
             view.showResult()
         } else {
 
