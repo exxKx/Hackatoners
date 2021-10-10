@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:id="@+id/lives"
-        android:layout_width="160dp"
+        android:layout_width="185dp"
         android:layout_height="72dp"
         android:paddingLeft="16dp"
         android:paddingTop="24dp"
