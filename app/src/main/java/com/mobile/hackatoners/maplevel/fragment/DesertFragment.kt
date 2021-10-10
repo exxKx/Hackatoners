@@ -75,7 +75,9 @@ class DesertFragment : Fragment(R.layout.fragment_desert) {
                 return@setOnClickListener
             }
             if (dataHolder.potions > 0) {
-                findNavController().navigate(R.id.potionDialog)
+                findNavController().navigate(R.id.potionDialog, Bundle().apply {
+                    putInt(FightActivity.REGION, Region.DESERT.value)
+                })
             } else {
                 Intent(requireContext(), FightActivity::class.java).run {
                     putExtra(FightActivity.REGION, Region.DESERT.value)

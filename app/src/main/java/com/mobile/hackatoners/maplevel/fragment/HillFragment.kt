@@ -75,7 +75,9 @@ class HillFragment : Fragment(R.layout.fragment_hill) {
                 return@setOnClickListener
             }
             if (dataHolder.potions > 0) {
-                findNavController().navigate(R.id.potionDialog)
+                findNavController().navigate(R.id.potionDialog, Bundle().apply {
+                    putInt(FightActivity.REGION, Region.HILL.value)
+                })
             } else {
                 Intent(requireContext(), FightActivity::class.java).run {
                     putExtra(FightActivity.REGION, Region.HILL.value)

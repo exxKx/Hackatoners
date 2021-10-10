@@ -1,6 +1,7 @@
 package com.mobile.hackatoners.maplevel.dialog
 
 import android.app.Dialog
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import com.afollestad.materialdialogs.MaterialDialog
@@ -8,8 +9,14 @@ import com.afollestad.materialdialogs.customview.customView
 import com.afollestad.materialdialogs.customview.getCustomView
 import com.google.android.material.button.MaterialButton
 import com.mobile.hackatoners.R
+import com.mobile.hackatoners.fight.FightActivity
+import com.mobile.hackatoners.utils.Region
 
 class PotionDialog : DialogFragment() {
+
+    private val region by lazy {
+        Region.find(arguments?.getInt(FightActivity.REGION) ?: Region.HILL.value)
+    }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return MaterialDialog(requireContext()).show {
@@ -22,12 +29,18 @@ class PotionDialog : DialogFragment() {
             getCustomView().findViewById<MaterialButton>(R.id.action_use_potion)
                 .setOnClickListener {
                     // TODO use 1 potion
-                    // TODO start fight
+                    Intent(requireContext(), FightActivity::class.java).run {
+                        putExtra(FightActivity.REGION, region.value)
+                        startActivity(this)
+                    }
                     dismiss()
                 }
             getCustomView().findViewById<MaterialButton>(R.id.action_go_fight)
                 .setOnClickListener {
-                    // TODO start fight
+                    Intent(requireContext(), FightActivity::class.java).run {
+                        putExtra(FightActivity.REGION, region.value)
+                        startActivity(this)
+                    }
                     dismiss()
                 }
         }
