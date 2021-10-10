@@ -16,7 +16,7 @@ class FightViewModel(application: Application) : AndroidViewModel(application) {
 
     val playerHP: MutableLiveData<Int> = MutableLiveData(4)
     val bossHP: MutableLiveData<Int> = MutableLiveData(5)
-    val money: MutableLiveData<Int> = MutableLiveData(20000)
+    val money: MutableLiveData<Int> = MutableLiveData(dataHolder.coins)
     var answerCount = 0
     var rightAnswerCount = 0
     val currentState: MutableLiveData<FightState> = MutableLiveData(FightState.FIGHT)
@@ -73,7 +73,10 @@ class FightViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun inflation() {
-        money.postValue(money.value?.minus(200))
+        if (money.value ?: 0 > 200)
+            money.postValue(money.value?.minus(200))
+        else
+            money.postValue(0)
         inflationEvent.postValue(null)
         inflationSpent += 200
     }

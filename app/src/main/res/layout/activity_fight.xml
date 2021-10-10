@@ -23,6 +23,16 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.45" />
 
+    <ImageView
+        android:id="@+id/what_is_it"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_margin="16dp"
+        android:background="?selectableItemBackground"
+        android:src="@drawable/ic_question"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/boss_life_container"
         android:layout_width="wrap_content"
@@ -169,7 +179,6 @@
                 android:shadowDx="10"
                 android:shadowDy="10"
                 android:shadowRadius="10"
-                android:text="20000"
                 android:textColor="#1d1d1d"
                 android:textSize="16sp" />
 
