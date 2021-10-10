@@ -7,6 +7,9 @@ class DataHolder private constructor(
     private val sharedPreferences: SharedPreferences
 ) {
 
+    var girl: Boolean
+        get() = sharedPreferences.getBoolean(KEY_GIRL, false)
+        set(value) = sharedPreferences.edit().putBoolean(KEY_GIRL, value).apply()
     var coins: Int
         get() = sharedPreferences.getInt(KEY_COINS, 0)
         set(value) = sharedPreferences.edit().putInt(KEY_COINS, value).apply()
@@ -48,6 +51,7 @@ class DataHolder private constructor(
         private const val XML_FILE_NAME = "com.mobile.hackatoners_preferences"
 
         private const val KEY_COINS = "coins"
+        private const val KEY_GIRL = "girl"
         private const val KEY_POTIONS = "potions"
         private const val KEY_HP = "hp"
 

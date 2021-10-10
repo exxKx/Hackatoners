@@ -7,13 +7,22 @@ class PersonPresenter(val view: PersonFragment, val dataHolder: DataHolder) {
     private var currentQuestionIndex = 0
     private var hp = 1
     private var coins = 0
+    private var girl : Boolean = false
 
     fun chooseClicked(choose: Int) {
         when (data[currentQuestionIndex].id) {
+            1 -> {
+                girl = choose == 2
+                if (girl) {
+                    view.showGirl()
+                } else {
+                    view.showMan()
+                }
+                dataHolder.girl = girl
+            }
             2 -> {
                 hp++
                 view.showHp(hp)
-                view.showGirl()
             }
             3 -> {
                     coins = 3000
@@ -35,7 +44,7 @@ class PersonPresenter(val view: PersonFragment, val dataHolder: DataHolder) {
         if (data.size - 1 < currentQuestionIndex) {
             dataHolder.coins = coins
             dataHolder.hp = hp
-            view.showResult()
+            view.showResult(girl)
         } else {
 
             view.showQuestion(data[currentQuestionIndex])
