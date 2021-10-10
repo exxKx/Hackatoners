@@ -83,7 +83,7 @@
     <string name="question_9_answer_2">ООО МойДоДыр, дата погашения 29 декабря</string>
     <string name="question_9_answer_3">Облигации госкомпании, погашение 13 декабря</string>
 
-    <string name="question_10_title">Что происходит через 1 год при выпуске 2 летних облигаций с безотзывной офертой на 1 год?</string>
+    <string name="question_10_title"> Вы хотите приобрести надёжную облигацию, какую выберете?</string>
     <string name="question_10_answer_1">Компания имеет право досрочно погасить облигацию</string>
     <string name="question_10_answer_2">Держатель облигации имеет право о досрочном погашении</string>
     <string name="question_10_answer_3">Ничего не произойдёт</string>

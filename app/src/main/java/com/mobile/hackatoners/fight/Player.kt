@@ -6,11 +6,14 @@ import android.util.DisplayMetrics
 import android.util.TypedValue
 import com.mobile.hackatoners.R
 
-class Player(context: Context, height: Float, widthScreen: Int) :
+class Player(context: Context, height: Float, widthScreen: Int, val girl: Boolean) :
     GameObject(context, height, widthScreen) {
 
     init {
-        this.setImageResource(R.drawable.degault_man)
+        if (girl)
+            this.setImageResource(R.drawable.woman_idle)
+        else
+            this.setImageResource(R.drawable.degault_man)
         this.x = (-1 * widthScreen / 10).toFloat()
     }
 
@@ -21,7 +24,10 @@ class Player(context: Context, height: Float, widthScreen: Int) :
     }
 
     override fun idle() {
-        this.setImageResource(R.drawable.degault_man)
+        if (girl)
+            this.setImageResource(R.drawable.woman_idle)
+        else
+            this.setImageResource(R.drawable.degault_man)
     }
 
     override fun setGrounded(height: Float) {
@@ -32,15 +38,24 @@ class Player(context: Context, height: Float, widthScreen: Int) :
         increaseAttackCount()
         when (imCount) {
             0 -> {
-                this.setImageResource(R.drawable.default_attack_1)
+                if (girl)
+                    this.setImageResource(R.drawable.woman_attack_1)
+                else
+                    this.setImageResource(R.drawable.default_attack_1)
                 return false
             }
             1 -> {
-                this.setImageResource(R.drawable.default_attack_2)
+                if (girl)
+                    this.setImageResource(R.drawable.woman_attack_2)
+                else
+                    this.setImageResource(R.drawable.default_attack_2)
                 return false
             }
             2 -> {
-                this.setImageResource(R.drawable.default_attack_3)
+                if (girl)
+                    this.setImageResource(R.drawable.woman_attack_3)
+                else
+                    this.setImageResource(R.drawable.default_attack_3)
                 return false
             }
             3 -> {

@@ -73,13 +73,6 @@ enum class Questions(
         true,
         listOf(R.string.question_9_answer_1, R.string.question_9_answer_2,R.string.question_9_answer_3),
         listOf(1,3)
-    ),
-    QUESTION_10(
-        10,
-        R.string.question_10_title,
-        true,
-        listOf(R.string.question_10_answer_1, R.string.question_10_answer_2,R.string.question_10_answer_3),
-        listOf(2)
     )
 
 }
