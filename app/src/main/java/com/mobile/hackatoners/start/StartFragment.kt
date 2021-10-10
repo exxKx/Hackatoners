@@ -1,14 +1,10 @@
 package com.mobile.hackatoners.start
 
-import android.animation.Animator
 import android.animation.ObjectAnimator
-import android.animation.ValueAnimator
-import android.animation.ValueAnimator.INFINITE
 import android.graphics.Path
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import androidx.core.animation.doOnCancel
 import androidx.core.animation.doOnEnd
 import androidx.fragment.app.Fragment
 import com.mobile.hackatoners.R

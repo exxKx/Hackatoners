@@ -15,6 +15,10 @@ class DataHolder private constructor(
         get() = sharedPreferences.getInt(KEY_POTIONS, 0)
         set(value) = sharedPreferences.edit().putInt(KEY_POTIONS, value).apply()
 
+    var hp: Int
+        get() = sharedPreferences.getInt(KEY_HP, 0)
+        set(value) = sharedPreferences.edit().putInt(KEY_HP, value).apply()
+
     var forestLevel: Int
         get() = sharedPreferences.getInt(KEY_FOREST_LEVEL, 0)
         set(value) = sharedPreferences.edit().putInt(KEY_FOREST_LEVEL, value).apply()
@@ -45,6 +49,7 @@ class DataHolder private constructor(
 
         private const val KEY_COINS = "coins"
         private const val KEY_POTIONS = "potions"
+        private const val KEY_HP = "hp"
 
         private const val KEY_FOREST_LEVEL = "forest_level"
         private const val KEY_DESERT_LEVEL = "desert_level"

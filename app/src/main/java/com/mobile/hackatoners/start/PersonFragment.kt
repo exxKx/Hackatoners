@@ -12,13 +12,16 @@ import androidx.fragment.app.Fragment
 import com.mobile.hackatoners.R
 import com.mobile.hackatoners.common.show
 import com.mobile.hackatoners.maplevel.activity.MapLevelActivity
+import com.mobile.hackatoners.utils.DataHolder
 import kotlinx.android.synthetic.main.fragment_person.*
 
 class PersonFragment : Fragment(R.layout.fragment_person) {
 
-    val presenter = PersonPresenter(this)
+    lateinit var presenter : PersonPresenter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        presenter = PersonPresenter(this, DataHolder.getInstance(requireContext()))
+
         super.onViewCreated(view, savedInstanceState)
 
         presenter.init()
