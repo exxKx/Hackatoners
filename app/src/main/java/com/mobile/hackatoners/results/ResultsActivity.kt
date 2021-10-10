@@ -102,7 +102,11 @@ class ResultsActivity : AppCompatActivity() {
         if (isVictory) {
             actionShare.isVisible = true
             resultTitle.text = getString(R.string.victory)
-            character.setImageResource(R.drawable.char_male_victory)
+            if (dataHolder.girl) {
+                character.setImageResource(R.drawable.char_girl_victory)
+            } else {
+                character.setImageResource(R.drawable.char_male_victory)
+            }
             if (rightAnswersCount >= allAnswersCount) {
                 LayoutInflater.from(this)
                     .inflate(R.layout.layout_card_victory, card_view)
@@ -131,7 +135,11 @@ class ResultsActivity : AppCompatActivity() {
         } else {
             actionShare.isVisible = false
             resultTitle.text = getString(R.string.defeat)
-            character.setImageResource(R.drawable.char_male_defeat)
+            if (dataHolder.girl) {
+                character.setImageResource(R.drawable.char_girl_defeat)
+            } else {
+                character.setImageResource(R.drawable.char_male_defeat)
+            }
             LayoutInflater.from(this)
                 .inflate(R.layout.layout_card_defeat, card_view)
             action_try_again.setOnClickListener {

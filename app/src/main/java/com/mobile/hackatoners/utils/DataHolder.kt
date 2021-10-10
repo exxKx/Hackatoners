@@ -10,6 +10,7 @@ class DataHolder private constructor(
     var girl: Boolean
         get() = sharedPreferences.getBoolean(KEY_GIRL, false)
         set(value) = sharedPreferences.edit().putBoolean(KEY_GIRL, value).apply()
+
     var coins: Int
         get() = sharedPreferences.getInt(KEY_COINS, 0)
         set(value) = sharedPreferences.edit().putInt(KEY_COINS, value).apply()
