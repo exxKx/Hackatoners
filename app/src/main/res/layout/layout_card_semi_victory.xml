@@ -29,6 +29,49 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/potion"
+        android:id="@+id/bonus"
+        app:layout_constraintTop_toBottomOf="@id/desc1"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:text="Бесплатно обучиться"
+        android:id="@+id/free_education"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toTopOf="@id/bonus"
+        app:layout_constraintBottom_toTopOf="@id/school"
+        app:layout_constraintStart_toEndOf="@id/bonus" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:textSize="14sp"
+        android:text="Школа Инвесторов ВТБ"
+        android:id="@+id/school"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/free_education"
+        app:layout_constraintBottom_toBottomOf="@id/bonus"
+        app:layout_constraintStart_toEndOf="@id/bonus" />
+
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/ic_next"
+        android:id="@+id/next"
+        app:layout_constraintTop_toTopOf="@id/bonus"
+        app:layout_constraintBottom_toBottomOf="@id/bonus"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,9 +81,15 @@
         android:textSize="18sp"
         android:text="Хотите купить облигации?"
         android:id="@+id/header2"
-        app:layout_constraintTop_toBottomOf="@id/desc1"
+        app:layout_constraintTop_toBottomOf="@id/bonus"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.constraintlayout.widget.Group
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/group"
+        app:constraint_referenced_ids="school,next,free_education,bonus"/>
 
     <TextView
         android:layout_width="match_parent"

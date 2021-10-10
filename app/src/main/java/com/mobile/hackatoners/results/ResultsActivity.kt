@@ -3,6 +3,7 @@ package com.mobile.hackatoners.results
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -100,7 +101,7 @@ class ResultsActivity : AppCompatActivity() {
                 LayoutInflater.from(this)
                     .inflate(R.layout.layout_card_victory, card_view)
                 action_buy.setOnClickListener {
-
+                    // todo open buy url
                 }
                 action_continue.setOnClickListener {
                     finish()
@@ -111,8 +112,13 @@ class ResultsActivity : AppCompatActivity() {
 
                 desc2.text = "blyat!! nado uspet"
 
+                group.referencedIds.forEach {
+                    findViewById<View>(it).setOnClickListener {
+                        // TODO open school url
+                    }
+                }
                 action_buy.setOnClickListener {
-
+                    // todo open buy url
                 }
                 action_continue.setOnClickListener {
                     finish()
