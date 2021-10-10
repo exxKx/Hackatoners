@@ -69,17 +69,6 @@ class HillFragment : Fragment(R.layout.fragment_hill) {
             AnimationUtils.loadAnimation(requireContext(), R.anim.float_animation_up)
         )
 
-        val image = when (dataHolder.hillLevel) {
-            0 -> R.drawable.bg_hill_1
-            1 -> R.drawable.bg_hill_2
-            2 -> R.drawable.bg_hill_3
-            else -> R.drawable.bg_hill_4
-        }
-        hill.setImageResource(image)
-
-        potions.text = getString(R.string.n_potions, dataHolder.potions)
-        coins.text = getString(R.string.n_coins, dataHolder.coins)
-
         actionFight.setOnClickListener {
             if (dataHolder.potions > 0) {
                 findNavController().navigate(R.id.potionDialog)
@@ -93,5 +82,19 @@ class HillFragment : Fragment(R.layout.fragment_hill) {
         actionBack.setOnClickListener {
             findNavController().popBackStack()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val image = when (dataHolder.hillLevel) {
+            0 -> R.drawable.bg_hill_1
+            1 -> R.drawable.bg_hill_2
+            2 -> R.drawable.bg_hill_3
+            else -> R.drawable.bg_hill_4
+        }
+        hill.setImageResource(image)
+
+        potions.text = getString(R.string.n_potions, dataHolder.potions)
+        coins.text = getString(R.string.n_coins, dataHolder.coins)
     }
 }

@@ -69,17 +69,6 @@ class ForestFragment : Fragment(R.layout.fragment_forest) {
             AnimationUtils.loadAnimation(requireContext(), R.anim.float_animation_up)
         )
 
-        val image = when (dataHolder.forestLevel) {
-            0 -> R.drawable.bg_forest_1
-            1 -> R.drawable.bg_forest_2
-            2 -> R.drawable.bg_forest_3
-            else -> R.drawable.bg_forest_4
-        }
-        forest.setImageResource(image)
-
-        potions.text = getString(R.string.n_potions, dataHolder.potions)
-        coins.text = getString(R.string.n_coins, dataHolder.coins)
-
         actionFight.setOnClickListener {
             if (dataHolder.potions > 0) {
                 findNavController().navigate(R.id.potionDialog)
@@ -93,5 +82,19 @@ class ForestFragment : Fragment(R.layout.fragment_forest) {
         actionBack.setOnClickListener {
             findNavController().popBackStack()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val image = when (dataHolder.forestLevel) {
+            0 -> R.drawable.bg_forest_1
+            1 -> R.drawable.bg_forest_2
+            2 -> R.drawable.bg_forest_3
+            else -> R.drawable.bg_forest_4
+        }
+        forest.setImageResource(image)
+
+        potions.text = getString(R.string.n_potions, dataHolder.potions)
+        coins.text = getString(R.string.n_coins, dataHolder.coins)
     }
 }
