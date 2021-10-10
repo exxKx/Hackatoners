@@ -35,7 +35,7 @@
         android:layout_marginBottom="72dp"
         android:gravity="center"
         android:lineSpacingMultiplier="1.28"
-        android:text="Как известно, деньги сами себяне\nзаработают! Проверь свои знания\nв новой игре.\nПравильно отвечай на вопросы\nи побеждай врагов"
+        android:text="Как известно, деньги сами себя не\nзаработают! Проверь свои знания\nв новой игре.\nПравильно отвечай на вопросы\nи побеждай врагов"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/button_start"
@@ -45,8 +45,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_start"
-        android:elevation="0dp"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_marginStart="16dp"
@@ -60,4 +59,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,10 +13,13 @@ import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import com.google.android.material.button.MaterialButton
 import com.mobile.hackatoners.R
+import com.mobile.hackatoners.fight.FightActivity
 import com.mobile.hackatoners.utils.DataHolder
 import com.mobile.hackatoners.utils.Region
 import kotlinx.android.synthetic.main.activity_result.*
+import kotlinx.android.synthetic.main.layout_card_defeat.*
 import kotlinx.android.synthetic.main.layout_card_semi_victory.*
+import kotlinx.android.synthetic.main.layout_card_semi_victory.group
 import kotlinx.android.synthetic.main.layout_card_victory.*
 import kotlinx.android.synthetic.main.layout_card_victory.action_buy
 import kotlinx.android.synthetic.main.layout_card_victory.action_continue
@@ -48,7 +51,8 @@ class ResultsActivity : AppCompatActivity() {
         elapsedTime = findViewById(R.id.elapsed_time_value)
 
         val isVictory = intent.getBooleanExtra(IS_VICTORY, true)
-        when (Region.find(intent.getIntExtra(REGION, Region.HILL.value))) {
+        val region = Region.find(intent.getIntExtra(REGION, Region.HILL.value))
+        when (region) {
             Region.FOREST -> {
                 if (isVictory) {
                     dataHolder.forestLevel += 1
@@ -129,7 +133,17 @@ class ResultsActivity : AppCompatActivity() {
             resultTitle.text = getString(R.string.defeat)
             character.setImageResource(R.drawable.char_male_defeat)
             LayoutInflater.from(this)
-                .inflate(R.layout.layout_card_victory, card_view) // todo defeat
+                .inflate(R.layout.layout_card_defeat, card_view)
+            action_try_again.setOnClickListener {
+                Intent(this, FightActivity::class.java).run {
+                    putExtra(FightActivity.REGION, region.value)
+                    startActivity(this)
+                }
+                finish()
+            }
+            action_back_to_map.setOnClickListener {
+                finish()
+            }
         }
 
         actionShare.setOnClickListener {
