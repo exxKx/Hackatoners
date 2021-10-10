@@ -45,13 +45,6 @@
             android:exported="true"
             tools:ignore="LockedOrientationActivity" />
 
-        <activity
-            android:name=".finish.FinishActivity"
-            android:screenOrientation="portrait"
-            android:launchMode="singleTop"
-            android:exported="true"
-            tools:ignore="LockedOrientationActivity" />
-
     </application>
 
 </manifest>
