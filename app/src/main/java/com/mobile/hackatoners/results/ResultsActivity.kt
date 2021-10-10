@@ -148,8 +148,9 @@ class ResultsActivity : AppCompatActivity() {
 
         actionShare.setOnClickListener {
             val sendIntent = Intent(Intent.ACTION_SEND).apply {
-                putExtra(Intent.EXTRA_TEXT, "This is my text to send.")
-                type = "text/plain"
+                putExtra(Intent.EXTRA_TEXT, "Покоряю мир инвестиций вместе с ВТБ. Попробуй себя в игре Инвестландия от ВТБ Банка http://test-hackaton.tilda.ws/\n" +
+                        "Качай приложение для Android по ссылке: https://play.google.com/store/apps/details?id=com.investiland.game")
+                intent.type = "text/plain"
             }
             val shareIntent = Intent.createChooser(sendIntent, null)
             startActivity(shareIntent)
