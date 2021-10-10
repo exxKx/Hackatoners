@@ -21,11 +21,12 @@ class PersonPresenter(val view: PersonFragment, val dataHolder: DataHolder) {
                 dataHolder.girl = girl
             }
             2 -> {
-                hp++
+                if (girl)
+                    hp++
                 view.showHp(hp)
             }
             3 -> {
-                    coins = 3000
+                    coins = if (girl) 4000 else 3000
                     view.showCoins(coins)
             }
             4 -> {
