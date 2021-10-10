@@ -2,6 +2,7 @@ package com.mobile.hackatoners.results
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +11,8 @@ import androidx.core.widget.NestedScrollView
 import com.google.android.material.button.MaterialButton
 import com.mobile.hackatoners.R
 import com.mobile.hackatoners.utils.Region
+import kotlinx.android.synthetic.main.activity_result.*
+import kotlinx.android.synthetic.main.layout_card_victory.*
 
 class ResultsActivity : AppCompatActivity() {
 
@@ -57,20 +60,12 @@ class ResultsActivity : AppCompatActivity() {
             }
         }
 
-        if (intent.getBooleanExtra(IS_VICTORY, true)) {
-            actionShare.isVisible = true
-            resultTitle.text = getString(R.string.victory)
-            character.setImageResource(R.drawable.char_male_victory)
-        } else {
-            actionShare.isVisible = false
-            resultTitle.text = getString(R.string.defeat)
-            character.setImageResource(R.drawable.char_male_defeat)
-        }
-
+        val rightAnswersCount = intent.getIntExtra(RIGHT_ANSWERS, 0)
+        val allAnswersCount = intent.getIntExtra(ANSWERS_COUNT, 0)
         rightAnswers.text = getString(
             R.string.n_answers,
-            intent.getIntExtra(RIGHT_ANSWERS, 0),
-            intent.getIntExtra(ANSWERS_COUNT, 0),
+            rightAnswersCount,
+            allAnswersCount,
         )
         inflation.text = getString(
             R.string.n_inflation,
@@ -80,6 +75,31 @@ class ResultsActivity : AppCompatActivity() {
             R.string.n_elapsed_time,
             intent.getIntExtra(ELAPSED_TIME, 0)
         )
+
+        if (intent.getBooleanExtra(IS_VICTORY, true)) {
+            actionShare.isVisible = true
+            resultTitle.text = getString(R.string.victory)
+            character.setImageResource(R.drawable.char_male_victory)
+            if (rightAnswersCount >= allAnswersCount) {
+                LayoutInflater.from(this)
+                    .inflate(R.layout.layout_card_victory, card_view)
+                action_buy.setOnClickListener {
+
+                }
+                action_continue.setOnClickListener {
+                    finish()
+                }
+            } else {
+                LayoutInflater.from(this)
+                    .inflate(R.layout.layout_card_victory, card_view) // todo semi- victory
+            }
+        } else {
+            actionShare.isVisible = false
+            resultTitle.text = getString(R.string.defeat)
+            character.setImageResource(R.drawable.char_male_defeat)
+            LayoutInflater.from(this)
+                .inflate(R.layout.layout_card_victory, card_view) // todo defeat
+        }
 
         actionShare.setOnClickListener {
             val sendIntent = Intent(Intent.ACTION_SEND).apply {
