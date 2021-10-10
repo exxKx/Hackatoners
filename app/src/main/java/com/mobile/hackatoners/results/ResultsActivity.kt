@@ -112,11 +112,9 @@ class ResultsActivity : AppCompatActivity() {
                 LayoutInflater.from(this)
                     .inflate(R.layout.layout_card_semi_victory, card_view)
 
-                desc2.text = "blyat!! nado uspet"
-
                 group.referencedIds.forEach {
                     findViewById<View>(it).setOnClickListener {
-                        // TODO open school url
+                        startVtbSchool()
                     }
                 }
                 action_buy.setOnClickListener {
@@ -160,6 +158,15 @@ class ResultsActivity : AppCompatActivity() {
                 )
             )
         }
+    }
+
+    private fun startVtbSchool() {
+        startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://school.vtb.ru/materials/courses/kak-zarabotat-na-obligatsiyakh/")
+            )
+        )
     }
 
     companion object {
