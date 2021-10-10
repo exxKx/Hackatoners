@@ -14,7 +14,8 @@ class FightViewModel(application: Application) : AndroidViewModel(application) {
 
     private val dataHolder by lazy { DataHolder.getInstance(application.applicationContext) }
 
-    val playerHP: MutableLiveData<Int> = MutableLiveData(4)
+    val playerHP: MutableLiveData<Int> = MutableLiveData(dataHolder.hp)
+    val startHp = playerHP.value
     val bossHP: MutableLiveData<Int> = MutableLiveData(5)
     val money: MutableLiveData<Int> = MutableLiveData(dataHolder.coins)
     var answerCount = 0
@@ -42,6 +43,10 @@ class FightViewModel(application: Application) : AndroidViewModel(application) {
         playerHP.value = playerHP.value?.minus(1)
     }
 
+    fun saveMoney(){
+        dataHolder.coins = money.value ?: 0
+    }
+
     fun getRandomQuestion() {
         val quest = allQuestions.random()
         allQuestions.remove(quest)
@@ -53,7 +58,7 @@ class FightViewModel(application: Application) : AndroidViewModel(application) {
         rightAnswerCount++
         bossHP.value = bossHP.value?.minus(1)
         money.value = money.value?.plus(500)
-
+        dataHolder.coins = money.value ?: 0
     }
 
     fun startOnboarding() {
