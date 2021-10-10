@@ -71,9 +71,9 @@ class PersonFragment : Fragment(R.layout.fragment_person) {
             chooser.visibility = View.GONE
     }
 
-    fun showResult() {
+    fun showResult(girl: Boolean) {
         skillet.setImageDrawable(
-            ContextCompat.getDrawable(requireContext(), R.drawable.character_states_done)
+            ContextCompat.getDrawable(requireContext(), if (girl) R.drawable.char_2_fun else R.drawable.char_1_fun)
         )
         person_play_text.show(true)
         bonus.show(true)
@@ -88,15 +88,16 @@ class PersonFragment : Fragment(R.layout.fragment_person) {
 
     fun showGirl() {
         skillet.setImageDrawable(
-            ContextCompat.getDrawable(requireContext(), R.drawable.charecter_states)
+            ContextCompat.getDrawable(requireContext(), R.drawable.char_2_2)
         )
     }
 
-    fun showItPerson() {
+    fun showMan() {
         skillet.setImageDrawable(
-            ContextCompat.getDrawable(requireContext(), R.drawable.charecter_states)
+            ContextCompat.getDrawable(requireContext(), R.drawable.char_1_1)
         )
     }
+
 
     fun showHp(hp: Int) {
         val hearts = listOf<View>(heart_1, heart_2, heart_3, heart_4, heart_5)
