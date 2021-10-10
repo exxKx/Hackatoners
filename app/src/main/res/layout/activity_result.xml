@@ -167,7 +167,6 @@
                 android:text="@string/n_inflation"
                 android:id="@+id/inflation_value"
                 app:layout_constraintTop_toBottomOf="@id/right_answers_text"
-                app:layout_constraintStart_toEndOf="@id/inflation_text"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
@@ -195,7 +194,6 @@
                 android:text="@string/n_elapsed_time"
                 android:id="@+id/elapsed_time_value"
                 app:layout_constraintTop_toBottomOf="@id/inflation_text"
-                app:layout_constraintStart_toEndOf="@id/inflation_text"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <com.google.android.material.card.MaterialCardView
