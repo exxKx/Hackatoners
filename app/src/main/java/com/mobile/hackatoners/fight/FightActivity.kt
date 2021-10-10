@@ -148,6 +148,13 @@ class FightActivity : AppCompatActivity(), FightListener {
             animateShow()
         }
 
+        when (region) {
+            Region.FOREST -> fight_scene.setBackgroundResource(R.drawable.stage_forest)
+            Region.DESERT -> fight_scene.setBackgroundResource(R.drawable.stage_desert)
+            Region.WORLD -> Unit // never used
+            Region.HILL -> fight_scene.setBackgroundResource(R.drawable.stage_hill)
+        }
+
         fightViewModel.currentQuestion.observe(this) {
             question.text = getString(R.string.question, it.id)
             question_title.text = getString(it.question)
@@ -207,6 +214,7 @@ class FightActivity : AppCompatActivity(), FightListener {
     fun startResultActivity(victory: Boolean) {
         viewModelStore.clear()
         Intent(this, ResultsActivity::class.java).run {
+            putExtra(REGION, region.value)
             putExtra(IS_VICTORY, victory)
             putExtra(ANSWERS_COUNT, fightViewModel.answerCount)
             putExtra(RIGHT_ANSWERS, fightViewModel.rightAnswerCount)
